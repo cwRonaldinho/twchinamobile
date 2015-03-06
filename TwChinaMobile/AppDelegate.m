@@ -8,9 +8,6 @@
 
 #import "AppDelegate.h"
 #import "LeveyTabBarController.h"
-#import "LiuliangViewController.h"
-#import "WoDeViewController.h"
-#import "CustomTabBarViewController.h"
 #import "GlobalData.h"
 #include "constant.h"
 
@@ -19,59 +16,24 @@
 @implementation AppDelegate
 
 @synthesize window;
-@synthesize leveyTabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     // 加载全局数据
-    [[GlobalData sharedSingleton] setAccount: @"13812345678"];
+    [[GlobalData sharedSingleton] setAccount: @"13888888888"];
     
     g_windowsBounds = [ UIScreen mainScreen ].bounds;
     g_applicationFrame = [ UIScreen mainScreen ].applicationFrame;
+    g_screenWidth = g_windowsBounds.size.width;
+    g_screenHeight = g_windowsBounds.size.height;
     
-//    // tabbarvc 的 vc 列表
-//    NSMutableArray *controllers = [NSMutableArray  array];
-//    
-//    // 创建主 tabbarvc 中的所有 vc
-//    // 1. 流量 vc
-//    LiuliangViewController *liuLiangVC = [[LiuliangViewController alloc] init];
-//    [controllers addObject:liuLiangVC];
-//    
-//   // 2. 我的 vc
-//    WoDeViewController *woDeVC = [[WoDeViewController alloc] initWithStyle:UITableViewStylePlain];
-//    woDeVC.view.backgroundColor = [UIColor redColor];
-//    [controllers addObject:woDeVC];
-//    
-//    // 3. 发现 vc
-//    WoDeViewController *discoverVC = [[WoDeViewController alloc] initWithStyle:UITableViewStylePlain];
-//    discoverVC.view.backgroundColor = [UIColor blueColor];
-//    [controllers addObject:discoverVC];
-//    
-//    // 4. 设置 vc
-//    WoDeViewController *setupVC = [[WoDeViewController alloc] initWithStyle:UITableViewStylePlain];
-//    setupVC.view.backgroundColor = [UIColor grayColor];
-//
-//    [controllers addObject:woDeVC];
-//    
-//    // TODO: 其它 vc 稍后实现
-    
-    
-    
-    // 自定义 tabbarcontroller	
-	leveyTabBarController = [[LeveyTabBarController alloc] init];
-    
-    // 设置各 vc 的 parent 信息
-    //liuLiangVC.parent = leveyTabBarController;
+    // 主视图控制器
+	_mainViewController = [[LeveyTabBarController alloc] init];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.leveyTabBarController;
+    self.window.rootViewController = _mainViewController;
     [self.window makeKeyAndVisible];
-    
-    // 尝试使用 tabbarcontroller + navigationcontroller 方式
-//    CustomTabBarViewController *tabbarVC = [[CustomTabBarViewController alloc] initWithImageArray:imgArr];
-//    self.window.rootViewController = tabbarVC;
-//    [self.window makeKeyAndVisible];
 
     return YES;
 }

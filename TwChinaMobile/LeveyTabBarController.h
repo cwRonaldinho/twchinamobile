@@ -10,12 +10,11 @@
 #import <UIKit/UIKit.h>
 #import "LeveyTabBar.h"
 #import "CustomNavBar.h"
-#import "XLCycleScrollView.h"
 
 @class UITabBarController;
 @protocol LeveyTabBarControllerDelegate;
 
-@interface LeveyTabBarController : UIViewController <LeveyTabBarDelegate, CustomNavBabDelegate, XLCycleScrollViewDatasource,XLCycleScrollViewDelegate,UIScrollViewDelegate>
+@interface LeveyTabBarController : UIViewController <LeveyTabBarDelegate, CustomNavBabDelegate,UIScrollViewDelegate>
 {
 	LeveyTabBar *_tabBar;
 	UIView      *_containerView;
@@ -30,7 +29,7 @@
     NSInteger animateDriect;
 }
 
-@property(nonatomic, strong) UIScrollView *scrollView;
+@property(nonatomic, strong) UIScrollView *scrollView;  // 所有一级页面均放在该滑动视图之中
 
 @property(nonatomic, copy) NSMutableArray *viewControllers;
 
@@ -49,7 +48,7 @@
 
 @property(nonatomic,assign) NSInteger animateDriect;
 
-- (id)initWithViewControllers:(NSArray *)vcs imageArray:(NSArray *)arr;
+//- (id)initWithViewControllers:(NSArray *)vcs imageArray:(NSArray *)arr;
 
 - (void)hidesTabBar:(BOOL)yesOrNO animated:(BOOL)animated;
 //- (void)hidesTabBar:(BOOL)yesOrNO animated:(BOOL)animated driect:(NSInteger)driect;

@@ -21,13 +21,10 @@
 		D1B65B201A7C5CF000C66F69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B65B021A7C5CF000C66F69 /* UIKit.framework */; };
 		D1B65B281A7C5CF000C66F69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1B65B261A7C5CF000C66F69 /* InfoPlist.strings */; };
 		D1B65B2A1A7C5CF000C66F69 /* TwChinaMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B65B291A7C5CF000C66F69 /* TwChinaMobileTests.m */; };
-		D1B65B361A7C806000C66F69 /* WoDeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B65B341A7C806000C66F69 /* WoDeViewController.m */; };
-		D1B65B371A7C806000C66F69 /* WoDeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B65B351A7C806000C66F69 /* WoDeViewController.xib */; };
 		D1B934E01A824CA500F4E2C6 /* LeveyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B934DD1A824CA500F4E2C6 /* LeveyTabBar.m */; };
 		D1B934E11A824CA500F4E2C6 /* LeveyTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B934DF1A824CA500F4E2C6 /* LeveyTabBarController.m */; };
 		D1BDFAA41A80F66F0055E413 /* UIImage+UIImageExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BDFAA31A80F66F0055E413 /* UIImage+UIImageExt.m */; };
 		D1C17EEB1A837FFD00DF5D29 /* CustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C17EEA1A837FFD00DF5D29 /* CustomNavBar.m */; };
-		D1C784BE1A8DF3FB003827CF /* XLCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C784BD1A8DF3FB003827CF /* XLCycleScrollView.m */; };
 		D1C7A6E11A8C81FC00C7AF6A /* btn_bg_green.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C7A6BD1A8C81FC00C7AF6A /* btn_bg_green.png */; };
 		D1C7A6E21A8C81FC00C7AF6A /* businesssmallimg.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C7A6BE1A8C81FC00C7AF6A /* businesssmallimg.png */; };
 		D1C7A6E31A8C81FC00C7AF6A /* changeui.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C7A6BF1A8C81FC00C7AF6A /* changeui.png */; };
@@ -64,9 +61,6 @@
 		D1C7A7021A8C81FC00C7AF6A /* setup_active.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C7A6DE1A8C81FC00C7AF6A /* setup_active.png */; };
 		D1C7A7031A8C81FC00C7AF6A /* setup_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C7A6DF1A8C81FC00C7AF6A /* setup_normal.png */; };
 		D1C7A7041A8C81FC00C7AF6A /* sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C7A6E01A8C81FC00C7AF6A /* sparkle.png */; };
-		D1C7A7071A8CA2C700C7AF6A /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C7A7061A8CA2C700C7AF6A /* CustomTabBarViewController.m */; };
-		D1C7A70A1A8CA31800C7AF6A /* GXCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C7A7091A8CA31800C7AF6A /* GXCustomButton.m */; };
-		D1CB5E201A850000001120AE /* LiuliangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CB5E1F1A850000001120AE /* LiuliangViewController.m */; };
 		D1D589661AA5467C00DC1BA7 /* LiuLiangView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D589651AA5467C00DC1BA7 /* LiuLiangView.m */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +75,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D1328D5B1A87024100CDE62A /* util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
 		D1328D5C1A871CF000CDE62A /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalData.h; path = classes/GlobalData.h; sourceTree = "<group>"; };
 		D1328D5D1A871CF000CDE62A /* GlobalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalData.m; path = classes/GlobalData.m; sourceTree = "<group>"; };
 		D1B65AFB1A7C5CF000C66F69 /* TwChinaMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwChinaMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,9 +94,6 @@
 		D1B65B251A7C5CF000C66F69 /* TwChinaMobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TwChinaMobileTests-Info.plist"; sourceTree = "<group>"; };
 		D1B65B271A7C5CF000C66F69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D1B65B291A7C5CF000C66F69 /* TwChinaMobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwChinaMobileTests.m; sourceTree = "<group>"; };
-		D1B65B331A7C806000C66F69 /* WoDeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoDeViewController.h; sourceTree = "<group>"; };
-		D1B65B341A7C806000C66F69 /* WoDeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoDeViewController.m; sourceTree = "<group>"; };
-		D1B65B351A7C806000C66F69 /* WoDeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WoDeViewController.xib; sourceTree = "<group>"; };
 		D1B934DC1A824CA500F4E2C6 /* LeveyTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeveyTabBar.h; sourceTree = "<group>"; };
 		D1B934DD1A824CA500F4E2C6 /* LeveyTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeveyTabBar.m; sourceTree = "<group>"; };
 		D1B934DE1A824CA500F4E2C6 /* LeveyTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeveyTabBarController.h; sourceTree = "<group>"; };
@@ -113,8 +103,6 @@
 		D1C17EE91A837FFD00DF5D29 /* CustomNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavBar.h; sourceTree = "<group>"; };
 		D1C17EEA1A837FFD00DF5D29 /* CustomNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavBar.m; sourceTree = "<group>"; };
 		D1C17EED1A8384B100DF5D29 /* constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constant.h; sourceTree = "<group>"; };
-		D1C784BC1A8DF3FB003827CF /* XLCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLCycleScrollView.h; sourceTree = "<group>"; };
-		D1C784BD1A8DF3FB003827CF /* XLCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLCycleScrollView.m; sourceTree = "<group>"; };
 		D1C7A6BD1A8C81FC00C7AF6A /* btn_bg_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_bg_green.png; path = res/img/btn_bg_green.png; sourceTree = "<group>"; };
 		D1C7A6BE1A8C81FC00C7AF6A /* businesssmallimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = businesssmallimg.png; path = res/img/businesssmallimg.png; sourceTree = "<group>"; };
 		D1C7A6BF1A8C81FC00C7AF6A /* changeui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = changeui.png; path = res/img/changeui.png; sourceTree = "<group>"; };
@@ -151,12 +139,6 @@
 		D1C7A6DE1A8C81FC00C7AF6A /* setup_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setup_active.png; path = res/img/setup_active.png; sourceTree = "<group>"; };
 		D1C7A6DF1A8C81FC00C7AF6A /* setup_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setup_normal.png; path = res/img/setup_normal.png; sourceTree = "<group>"; };
 		D1C7A6E01A8C81FC00C7AF6A /* sparkle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sparkle.png; path = res/img/sparkle.png; sourceTree = "<group>"; };
-		D1C7A7051A8CA2C700C7AF6A /* CustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTabBarViewController.h; path = classes/CustomTabBarViewController.h; sourceTree = "<group>"; };
-		D1C7A7061A8CA2C700C7AF6A /* CustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTabBarViewController.m; path = classes/CustomTabBarViewController.m; sourceTree = "<group>"; };
-		D1C7A7081A8CA31800C7AF6A /* GXCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GXCustomButton.h; path = classes/GXCustomButton.h; sourceTree = "<group>"; };
-		D1C7A7091A8CA31800C7AF6A /* GXCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GXCustomButton.m; path = classes/GXCustomButton.m; sourceTree = "<group>"; };
-		D1CB5E1E1A850000001120AE /* LiuliangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiuliangViewController.h; path = classes/LiuliangViewController.h; sourceTree = "<group>"; };
-		D1CB5E1F1A850000001120AE /* LiuliangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiuliangViewController.m; path = classes/LiuliangViewController.m; sourceTree = "<group>"; };
 		D1D589641AA5467C00DC1BA7 /* LiuLiangView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiuLiangView.h; path = classes/LiuLiangView.h; sourceTree = "<group>"; };
 		D1D589651AA5467C00DC1BA7 /* LiuLiangView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiuLiangView.m; path = classes/LiuLiangView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,6 +200,7 @@
 		D1B65B041A7C5CF000C66F69 /* TwChinaMobile */ = {
 			isa = PBXGroup;
 			children = (
+				D1BD97AD1AA9585E00B03A1E /* common */,
 				D1B934E41A824D9D00F4E2C6 /* main */,
 				D1B934DA1A824C7200F4E2C6 /* classes */,
 				D1B65B161A7C5CF000C66F69 /* Images.xcassets */,
@@ -310,44 +293,34 @@
 		D1B934DA1A824C7200F4E2C6 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				D1BD97AE1AA9587200B03A1E /* model */,
 				D1B934E31A824D6E00F4E2C6 /* extent */,
-				D1B934E21A824D6800F4E2C6 /* vc */,
-				D1B934DB1A824C8000F4E2C6 /* selftabbar */,
+				D1B934E21A824D6800F4E2C6 /* views */,
+				D1B934DB1A824C8000F4E2C6 /* mainframe */,
 			);
 			name = classes;
 			sourceTree = "<group>";
 		};
-		D1B934DB1A824C8000F4E2C6 /* selftabbar */ = {
+		D1B934DB1A824C8000F4E2C6 /* mainframe */ = {
 			isa = PBXGroup;
 			children = (
-				D1C784BC1A8DF3FB003827CF /* XLCycleScrollView.h */,
-				D1C784BD1A8DF3FB003827CF /* XLCycleScrollView.m */,
 				D1B934DC1A824CA500F4E2C6 /* LeveyTabBar.h */,
 				D1B934DD1A824CA500F4E2C6 /* LeveyTabBar.m */,
 				D1B934DE1A824CA500F4E2C6 /* LeveyTabBarController.h */,
 				D1B934DF1A824CA500F4E2C6 /* LeveyTabBarController.m */,
 				D1C17EE91A837FFD00DF5D29 /* CustomNavBar.h */,
 				D1C17EEA1A837FFD00DF5D29 /* CustomNavBar.m */,
-				D1C7A7051A8CA2C700C7AF6A /* CustomTabBarViewController.h */,
-				D1C7A7061A8CA2C700C7AF6A /* CustomTabBarViewController.m */,
-				D1C7A7081A8CA31800C7AF6A /* GXCustomButton.h */,
-				D1C7A7091A8CA31800C7AF6A /* GXCustomButton.m */,
 			);
-			name = selftabbar;
+			name = mainframe;
 			sourceTree = "<group>";
 		};
-		D1B934E21A824D6800F4E2C6 /* vc */ = {
+		D1B934E21A824D6800F4E2C6 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				D1B65B331A7C806000C66F69 /* WoDeViewController.h */,
-				D1B65B341A7C806000C66F69 /* WoDeViewController.m */,
-				D1B65B351A7C806000C66F69 /* WoDeViewController.xib */,
-				D1CB5E1E1A850000001120AE /* LiuliangViewController.h */,
-				D1CB5E1F1A850000001120AE /* LiuliangViewController.m */,
 				D1D589641AA5467C00DC1BA7 /* LiuLiangView.h */,
 				D1D589651AA5467C00DC1BA7 /* LiuLiangView.m */,
 			);
-			name = vc;
+			name = views;
 			sourceTree = "<group>";
 		};
 		D1B934E31A824D6E00F4E2C6 /* extent */ = {
@@ -365,12 +338,33 @@
 				D1B65B0D1A7C5CF000C66F69 /* AppDelegate.h */,
 				D1B65B0E1A7C5CF000C66F69 /* AppDelegate.m */,
 				D1B65B101A7C5CF000C66F69 /* Main.storyboard */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		D1BD97AD1AA9585E00B03A1E /* common */ = {
+			isa = PBXGroup;
+			children = (
 				D1C17EED1A8384B100DF5D29 /* constant.h */,
-				D1328D5B1A87024100CDE62A /* util.h */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
+		D1BD97AE1AA9587200B03A1E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D1BD97AF1AA9587700B03A1E /* global */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		D1BD97AF1AA9587700B03A1E /* global */ = {
+			isa = PBXGroup;
+			children = (
 				D1328D5C1A871CF000CDE62A /* GlobalData.h */,
 				D1328D5D1A871CF000CDE62A /* GlobalData.m */,
 			);
-			name = main;
+			name = global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,7 +457,6 @@
 				D1C7A6E91A8C81FC00C7AF6A /* flowbackcirgreen.png in Resources */,
 				D1C7A6E81A8C81FC00C7AF6A /* flow_normal.png in Resources */,
 				D1C7A6E51A8C81FC00C7AF6A /* discover_normal.png in Resources */,
-				D1B65B371A7C806000C66F69 /* WoDeViewController.xib in Resources */,
 				D1C7A6F51A8C81FC00C7AF6A /* flowharrow2.png in Resources */,
 				D1C7A6F01A8C81FC00C7AF6A /* flowbtnshareactive.png in Resources */,
 				D1C7A6E11A8C81FC00C7AF6A /* btn_bg_green.png in Resources */,
@@ -507,19 +500,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1C784BE1A8DF3FB003827CF /* XLCycleScrollView.m in Sources */,
-				D1B65B361A7C806000C66F69 /* WoDeViewController.m in Sources */,
 				D1B934E01A824CA500F4E2C6 /* LeveyTabBar.m in Sources */,
 				D1B65B0F1A7C5CF000C66F69 /* AppDelegate.m in Sources */,
 				D1328D5E1A871CF000CDE62A /* GlobalData.m in Sources */,
 				D1B65B0B1A7C5CF000C66F69 /* main.m in Sources */,
-				D1C7A70A1A8CA31800C7AF6A /* GXCustomButton.m in Sources */,
-				D1C7A7071A8CA2C700C7AF6A /* CustomTabBarViewController.m in Sources */,
 				D1BDFAA41A80F66F0055E413 /* UIImage+UIImageExt.m in Sources */,
 				D1D589661AA5467C00DC1BA7 /* LiuLiangView.m in Sources */,
 				D1C17EEB1A837FFD00DF5D29 /* CustomNavBar.m in Sources */,
 				D1B934E11A824CA500F4E2C6 /* LeveyTabBarController.m in Sources */,
-				D1CB5E201A850000001120AE /* LiuliangViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,8 @@
 // 全局变量
 CGRect g_windowsBounds;
 CGRect g_applicationFrame;
+float g_screenWidth;
+float g_screenHeight;
 /*
  CGRect r = [ UIScreen mainScreen ].applicationFrame;
  r=0，20，320，460

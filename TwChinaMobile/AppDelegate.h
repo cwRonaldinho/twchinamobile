@@ -14,6 +14,6 @@
 @interface AppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, strong)  LeveyTabBarController *leveyTabBarController;
+@property (nonatomic, strong)  LeveyTabBarController *mainViewController;
 
 @end

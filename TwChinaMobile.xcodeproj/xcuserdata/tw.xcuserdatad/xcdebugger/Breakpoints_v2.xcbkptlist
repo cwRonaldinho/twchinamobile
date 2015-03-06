@@ -74,13 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "-initWithViewControllers:imageArray:"
-            landmarkType = "5">
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "@implementation LeveyTabBarController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,27 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "-initWithViewControllers:imageArray:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "-loadView"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-loadView"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "-setTabBarTransparent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "-loadView"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -234,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,59 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "-initWithViewControllers:imageArray:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "-initWithViewControllers:imageArray:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
-            landmarkName = "-displayViewAtIndex:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "@implementation LeveyTabBarController"
             landmarkType = "3">
          </BreakpointContent>
@@ -314,11 +250,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447042679.70693"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "420"
-            endingLineNumber = "420"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "@implementation LeveyTabBarController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwChinaMobile/LeveyTabBarController.m"
+            timestampString = "447316369.628907"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "365"
+            endingLineNumber = "365"
+            landmarkName = "-displayViewAtIndex:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwChinaMobile/LeveyTabBarController.m"
+            timestampString = "447316369.628907"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
             landmarkName = "-navBar:didClickButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -394,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/AppDelegate.m"
-            timestampString = "446995414.357274"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "5">
          </BreakpointContent>
@@ -410,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/AppDelegate.m"
-            timestampString = "445062674.881815"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "5">
          </BreakpointContent>
@@ -520,13 +488,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "-initWithViewControllers:imageArray:"
-            landmarkType = "5">
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "@implementation LeveyTabBarController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -536,11 +504,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "389"
-            endingLineNumber = "389"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
             landmarkName = "-displayViewAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -552,11 +520,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "377"
-            endingLineNumber = "377"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
             landmarkName = "-displayViewAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -568,11 +536,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
             landmarkName = "-displayViewAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -584,11 +552,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "-setTabBarTransparent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -600,11 +568,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "-setTabBarTransparent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -616,11 +584,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "-hidesTabBar:animated:"
             landmarkType = "5">
          </BreakpointContent>
@@ -632,11 +600,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "-hidesTabBar:animated:"
             landmarkType = "5">
          </BreakpointContent>
@@ -664,11 +632,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "-hidesTabBar:animated:"
             landmarkType = "5">
          </BreakpointContent>
@@ -680,11 +648,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
             landmarkName = "-displayViewAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -760,13 +728,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "-initWithViewControllers:imageArray:"
-            landmarkType = "5">
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "@implementation LeveyTabBarController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -952,11 +920,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "-loadView"
             landmarkType = "5">
          </BreakpointContent>
@@ -964,17 +932,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447039213.557546"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "-initWithViewControllers:imageArray:"
-            landmarkType = "5">
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "@implementation LeveyTabBarController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1000,11 +968,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447042679.70693"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "421"
-            endingLineNumber = "421"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
             landmarkName = "-navBar:didClickButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1016,11 +984,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447042260.910003"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "407"
-            endingLineNumber = "407"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
             landmarkName = "-tabBar:didSelectIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1048,11 +1016,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwChinaMobile/LeveyTabBarController.m"
-            timestampString = "447042690.649966"
+            timestampString = "447316369.628907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "414"
-            endingLineNumber = "414"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
             landmarkName = "-tabBar:didSelectIndex:"
             landmarkType = "5">
          </BreakpointContent>
