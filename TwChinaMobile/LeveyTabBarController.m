@@ -24,9 +24,9 @@ static LeveyTabBarController *leveyTabBarController;
 
 @end
 
-@interface LeveyTabBarController (private)
-- (void)displayViewAtIndex:(NSUInteger)index;
-@end
+//@interface LeveyTabBarController()
+//- (void)displayViewAtIndex;
+//@end
 
 @implementation LeveyTabBarController
 @synthesize delegate = _delegate;
@@ -46,8 +46,8 @@ static LeveyTabBarController *leveyTabBarController;
 		_containerView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         _containerView.backgroundColor = [UIColor whiteColor];
         
-        // 导航栏(高度暂定与 tabbar 一致)
-        _navBar = [[CustomNavBar alloc] initWithFrame:CGRectMake(0, g_applicationFrame.origin.y, g_applicationFrame.size.width, kTabBarHeight) ];
+        // 自定义导航栏
+        _navBar = [[CustomNavBar alloc] initWithFrame:CGRectMake(0, g_applicationFrame.origin.y, g_screenWidth, kNavBarHeight) ];
         _navBar.delegate = self;
         
         // tabbar 各按钮对应图片
@@ -293,11 +293,11 @@ static LeveyTabBarController *leveyTabBarController;
     return [_viewControllers objectAtIndex:_selectedIndex];
 }
 
--(void)setSelectedIndex:(NSUInteger)index
-{
-    [self displayViewAtIndex:index];
-    [_tabBar selectTabAtIndex:index];
-}
+//-(void)setSelectedIndex:(NSUInteger)index
+//{
+//    [self displayViewAtIndex:index];
+//    [_tabBar selectTabAtIndex:index];
+//}
 
 - (void)removeViewControllerAtIndex:(NSUInteger)index
 {
@@ -335,68 +335,14 @@ static LeveyTabBarController *leveyTabBarController;
 
 
 #pragma mark - Private methods
-- (void)displayViewAtIndex:(NSUInteger)index
-{
-    // Before change index, ask the delegate should change the index.
-    if ([_delegate respondsToSelector:@selector(tabBarController:shouldSelectViewController:)]) 
-    {
-        if (![_delegate tabBarController:self shouldSelectViewController:[self.viewControllers objectAtIndex:index]])
-        {
-            return;
-        }
-    }
-    // If target index if equal to current index, do nothing.
-    if (_selectedIndex == index && [[_transitionView subviews] count] != 0) 
-    {
-        return;
-    }
-    NSLog(@"Display View.");
-    _selectedIndex = index;
-    
-	UIViewController *selectedVC = [self.viewControllers objectAtIndex:index];
-	
-    CGRect tmpCR = selectedVC.view.frame;
-    //NSLog(@"selected view: \n(%f, %f, %f, %f)", tmpCR.origin.x, tmpCR.origin.y,tmpCR.size.width, tmpCR.size.height);
-    
-	selectedVC.view.frame = _transitionView.frame;
-    
-    tmpCR = selectedVC.view.frame;
-    //NSLog(@"selected view: \n(%f, %f, %f, %f)", tmpCR.origin.x, tmpCR.origin.y,tmpCR.size.width, tmpCR.size.height);
-    //selectedVC.view.frame = CGRectMake(0, 0, _transitionView.frame.size.width, _transitionView.frame.size.height);
-	if ([selectedVC.view isDescendantOfView:_transitionView]) 
-	{
-		[_transitionView bringSubviewToFront:selectedVC.view];
-	}
-	else
-	{
-		[_transitionView addSubview:selectedVC.view];
-        
-        CGRect crT1 = selectedVC.view.frame;
-        crT1 = selectedVC.view.bounds;
-	}
-    
-    tmpCR = selectedVC.view.frame;
-    //NSLog(@"selected view: \n(%f, %f, %f, %f)", tmpCR.origin.x, tmpCR.origin.y,tmpCR.size.width, tmpCR.size.height);
-    
-    // Notify the delegate, the viewcontroller has been changed.
-//    if ([_delegate respondsToSelector:@selector(tabBarController:didSelectViewController::)]) 
-//    {
-//        [_delegate tabBarController:self didSelectViewController:selectedVC];
-//    }
-
-}
+//- (void)displayViewAtIndex
+//{
+//}
 
 #pragma mark -
 #pragma mark tabBar delegates
 - (void)tabBar:(LeveyTabBar *)tabBar didSelectIndex:(NSInteger)index
 {
-	if (self.selectedIndex == index) {
-//        UINavigationController *nav = [self.viewControllers objectAtIndex:index];
-//        [nav popToRootViewControllerAnimated:YES];
-    }else {
-        //[self displayViewAtIndex:index];
-        //_scrollView.contentOffset = CGPointMake(index*g_screenWidth, 0);
-    }
     _scrollView.contentOffset = CGPointMake(index*g_screenWidth, 0);
 }
 

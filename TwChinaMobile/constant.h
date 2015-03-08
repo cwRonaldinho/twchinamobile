@@ -26,22 +26,23 @@ float g_screenHeight;
 CGRect g_cr;
 
 // 常量
-#define kTabBarHeight 49.0f
+#define kNavBarHeight 44.0f
+#define kTabBarHeight 44.0f
 #define kStatusBarHeight 20.0f
 
 // logo size
-#define kLogoWidth 40.0f
-#define kLogoHeight 40.0f
+#define kLogoWidth 30.0f
+#define kLogoHeight 30.0f
 #define kLogoInset 10.0f // logo距离两侧元素的距离
 
 // 通话按钮尺寸
-#define kCommBtnWeight 30.0f
-#define kCommBtnHeight 30.0f
+#define kCommBtnWeight 25.0f
+#define kCommBtnHeight 25.0f
 #define kCommBtnTag 100
 
 // 流量界面相关定义
 #define kMainViewInset 8.0f             // 主视图区到两边及上面元素的距离
-#define kMainViewHeight 310.0f       // 主视图高度
+#define kMainViewHeight 300.0f       // 主视图高度
 #define kMainViewButtonDistance 8.0f        // 主视图上下部分间距离
 #define kFuncButtonDistance 4.0f    // 功能按钮之间间隔，通过该值能计算出功能按钮的宽度，如高度和宽度相同，则高度也通过该值计算即可
 //#define kFuncButtonBottomInset 40.0f    // 功能按钮与下面元素距离

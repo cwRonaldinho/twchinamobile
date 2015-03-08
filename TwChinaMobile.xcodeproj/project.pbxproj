@@ -23,6 +23,8 @@
 		D1B65B2A1A7C5CF000C66F69 /* TwChinaMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B65B291A7C5CF000C66F69 /* TwChinaMobileTests.m */; };
 		D1B934E01A824CA500F4E2C6 /* LeveyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B934DD1A824CA500F4E2C6 /* LeveyTabBar.m */; };
 		D1B934E11A824CA500F4E2C6 /* LeveyTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B934DF1A824CA500F4E2C6 /* LeveyTabBarController.m */; };
+		D1BD97B61AA99D4200B03A1E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D1BD97B41AA99D4200B03A1E /* Default-568h@2x.png */; };
+		D1BD97B71AA99D4200B03A1E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D1BD97B51AA99D4200B03A1E /* Default@2x.png */; };
 		D1BDFAA41A80F66F0055E413 /* UIImage+UIImageExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BDFAA31A80F66F0055E413 /* UIImage+UIImageExt.m */; };
 		D1C17EEB1A837FFD00DF5D29 /* CustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C17EEA1A837FFD00DF5D29 /* CustomNavBar.m */; };
 		D1C7A6E11A8C81FC00C7AF6A /* btn_bg_green.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C7A6BD1A8C81FC00C7AF6A /* btn_bg_green.png */; };
@@ -98,6 +100,8 @@
 		D1B934DD1A824CA500F4E2C6 /* LeveyTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeveyTabBar.m; sourceTree = "<group>"; };
 		D1B934DE1A824CA500F4E2C6 /* LeveyTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeveyTabBarController.h; sourceTree = "<group>"; };
 		D1B934DF1A824CA500F4E2C6 /* LeveyTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeveyTabBarController.m; sourceTree = "<group>"; };
+		D1BD97B41AA99D4200B03A1E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "res/Default-568h@2x.png"; sourceTree = "<group>"; };
+		D1BD97B51AA99D4200B03A1E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "res/Default@2x.png"; sourceTree = "<group>"; };
 		D1BDFAA21A80F66F0055E413 /* UIImage+UIImageExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImageExt.h"; sourceTree = "<group>"; };
 		D1BDFAA31A80F66F0055E413 /* UIImage+UIImageExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImageExt.m"; sourceTree = "<group>"; };
 		D1C17EE91A837FFD00DF5D29 /* CustomNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavBar.h; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 				D1C7A6BD1A8C81FC00C7AF6A /* btn_bg_green.png */,
 				D1C7A6BE1A8C81FC00C7AF6A /* businesssmallimg.png */,
 				D1C7A6BF1A8C81FC00C7AF6A /* changeui.png */,
+				D1BD97B41AA99D4200B03A1E /* Default-568h@2x.png */,
+				D1BD97B51AA99D4200B03A1E /* Default@2x.png */,
 				D1C7A6C01A8C81FC00C7AF6A /* discover_active.png */,
 				D1C7A6C11A8C81FC00C7AF6A /* discover_normal.png */,
 				D1C7A6C21A8C81FC00C7AF6A /* exp_index_divider.png */,
@@ -454,8 +460,10 @@
 				D1C7A6F71A8C81FC00C7AF6A /* iab_green_bg.9.png in Resources */,
 				D1C7A6EE1A8C81FC00C7AF6A /* flowbtnextactive.png in Resources */,
 				D1B65B171A7C5CF000C66F69 /* Images.xcassets in Resources */,
+				D1BD97B71AA99D4200B03A1E /* Default@2x.png in Resources */,
 				D1C7A6E91A8C81FC00C7AF6A /* flowbackcirgreen.png in Resources */,
 				D1C7A6E81A8C81FC00C7AF6A /* flow_normal.png in Resources */,
+				D1BD97B61AA99D4200B03A1E /* Default-568h@2x.png in Resources */,
 				D1C7A6E51A8C81FC00C7AF6A /* discover_normal.png in Resources */,
 				D1C7A6F51A8C81FC00C7AF6A /* flowharrow2.png in Resources */,
 				D1C7A6F01A8C81FC00C7AF6A /* flowbtnshareactive.png in Resources */,
