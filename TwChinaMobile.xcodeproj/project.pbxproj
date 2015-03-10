@@ -23,6 +23,7 @@
 		D1B65B2A1A7C5CF000C66F69 /* TwChinaMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B65B291A7C5CF000C66F69 /* TwChinaMobileTests.m */; };
 		D1B934E01A824CA500F4E2C6 /* LeveyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B934DD1A824CA500F4E2C6 /* LeveyTabBar.m */; };
 		D1B934E11A824CA500F4E2C6 /* LeveyTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B934DF1A824CA500F4E2C6 /* LeveyTabBarController.m */; };
+		D1BA469B1AAF1AD500E0B12E /* MyNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA469A1AAF1AD500E0B12E /* MyNavViewController.m */; };
 		D1BD97B61AA99D4200B03A1E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D1BD97B41AA99D4200B03A1E /* Default-568h@2x.png */; };
 		D1BD97B71AA99D4200B03A1E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D1BD97B51AA99D4200B03A1E /* Default@2x.png */; };
 		D1BDFAA41A80F66F0055E413 /* UIImage+UIImageExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BDFAA31A80F66F0055E413 /* UIImage+UIImageExt.m */; };
@@ -63,6 +64,7 @@
 		D1C7A7021A8C81FC00C7AF6A /* setup_active.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C7A6DE1A8C81FC00C7AF6A /* setup_active.png */; };
 		D1C7A7031A8C81FC00C7AF6A /* setup_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C7A6DF1A8C81FC00C7AF6A /* setup_normal.png */; };
 		D1C7A7041A8C81FC00C7AF6A /* sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C7A6E01A8C81FC00C7AF6A /* sparkle.png */; };
+		D1D25B381AAF267100E66C85 /* CategoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D25B371AAF267100E66C85 /* CategoryDetailViewController.m */; };
 		D1D589661AA5467C00DC1BA7 /* LiuLiangView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D589651AA5467C00DC1BA7 /* LiuLiangView.m */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,8 @@
 		D1B934DD1A824CA500F4E2C6 /* LeveyTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeveyTabBar.m; sourceTree = "<group>"; };
 		D1B934DE1A824CA500F4E2C6 /* LeveyTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeveyTabBarController.h; sourceTree = "<group>"; };
 		D1B934DF1A824CA500F4E2C6 /* LeveyTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeveyTabBarController.m; sourceTree = "<group>"; };
+		D1BA46991AAF1AD500E0B12E /* MyNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyNavViewController.h; path = classes/MyNavViewController.h; sourceTree = "<group>"; };
+		D1BA469A1AAF1AD500E0B12E /* MyNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyNavViewController.m; path = classes/MyNavViewController.m; sourceTree = "<group>"; };
 		D1BD97B41AA99D4200B03A1E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "res/Default-568h@2x.png"; sourceTree = "<group>"; };
 		D1BD97B51AA99D4200B03A1E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "res/Default@2x.png"; sourceTree = "<group>"; };
 		D1BDFAA21A80F66F0055E413 /* UIImage+UIImageExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImageExt.h"; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 		D1C7A6DE1A8C81FC00C7AF6A /* setup_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setup_active.png; path = res/img/setup_active.png; sourceTree = "<group>"; };
 		D1C7A6DF1A8C81FC00C7AF6A /* setup_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setup_normal.png; path = res/img/setup_normal.png; sourceTree = "<group>"; };
 		D1C7A6E01A8C81FC00C7AF6A /* sparkle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sparkle.png; path = res/img/sparkle.png; sourceTree = "<group>"; };
+		D1D25B361AAF267100E66C85 /* CategoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryDetailViewController.h; path = classes/CategoryDetailViewController.h; sourceTree = "<group>"; };
+		D1D25B371AAF267100E66C85 /* CategoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryDetailViewController.m; path = classes/CategoryDetailViewController.m; sourceTree = "<group>"; };
 		D1D589641AA5467C00DC1BA7 /* LiuLiangView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiuLiangView.h; path = classes/LiuLiangView.h; sourceTree = "<group>"; };
 		D1D589651AA5467C00DC1BA7 /* LiuLiangView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiuLiangView.m; path = classes/LiuLiangView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -316,6 +322,10 @@
 				D1B934DF1A824CA500F4E2C6 /* LeveyTabBarController.m */,
 				D1C17EE91A837FFD00DF5D29 /* CustomNavBar.h */,
 				D1C17EEA1A837FFD00DF5D29 /* CustomNavBar.m */,
+				D1BA46991AAF1AD500E0B12E /* MyNavViewController.h */,
+				D1BA469A1AAF1AD500E0B12E /* MyNavViewController.m */,
+				D1D25B361AAF267100E66C85 /* CategoryDetailViewController.h */,
+				D1D25B371AAF267100E66C85 /* CategoryDetailViewController.m */,
 			);
 			name = mainframe;
 			sourceTree = "<group>";
@@ -509,11 +519,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B934E01A824CA500F4E2C6 /* LeveyTabBar.m in Sources */,
+				D1D25B381AAF267100E66C85 /* CategoryDetailViewController.m in Sources */,
 				D1B65B0F1A7C5CF000C66F69 /* AppDelegate.m in Sources */,
 				D1328D5E1A871CF000CDE62A /* GlobalData.m in Sources */,
 				D1B65B0B1A7C5CF000C66F69 /* main.m in Sources */,
 				D1BDFAA41A80F66F0055E413 /* UIImage+UIImageExt.m in Sources */,
 				D1D589661AA5467C00DC1BA7 /* LiuLiangView.m in Sources */,
+				D1BA469B1AAF1AD500E0B12E /* MyNavViewController.m in Sources */,
 				D1C17EEB1A837FFD00DF5D29 /* CustomNavBar.m in Sources */,
 				D1B934E11A824CA500F4E2C6 /* LeveyTabBarController.m in Sources */,
 			);

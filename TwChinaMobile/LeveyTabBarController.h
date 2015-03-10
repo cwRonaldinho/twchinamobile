@@ -61,6 +61,9 @@
 
 - (void)hideBars:(BOOL)yesOrNo;
 
+// 切换视图操作
+- (void)switchToCategoryDetails;
+
 @end
 
 

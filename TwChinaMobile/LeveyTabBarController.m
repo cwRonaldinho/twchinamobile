@@ -12,6 +12,7 @@
 #include "CustomNavBar.h"
 #include "constant.h"
 #import "LiuLiangView.h"
+#import "CategoryDetailViewController.h"
 
 static LeveyTabBarController *leveyTabBarController;
 
@@ -47,8 +48,8 @@ static LeveyTabBarController *leveyTabBarController;
         _containerView.backgroundColor = [UIColor whiteColor];
         
         // 自定义导航栏
-        _navBar = [[CustomNavBar alloc] initWithFrame:CGRectMake(0, g_applicationFrame.origin.y, g_screenWidth, kNavBarHeight) ];
-        _navBar.delegate = self;
+        //_navBar = [[CustomNavBar alloc] initWithFrame:CGRectMake(0, g_applicationFrame.origin.y, g_screenWidth, kNavBarHeight) ];
+        //_navBar.delegate = self;
         
         // tabbar 各按钮对应图片
         NSMutableDictionary *imgDic = [NSMutableDictionary dictionaryWithCapacity:3];
@@ -77,7 +78,7 @@ static LeveyTabBarController *leveyTabBarController;
         // 添加滚动主视图
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kTabBarHeight+kStatusBarHeight, g_screenWidth, g_screenHeight - kTabBarHeight*2 - kStatusBarHeight)];
         //向 ScrollView 中加入第一个 View，View 的宽度 200 加上两边的空隙 5 等于 ScrollView 的宽度
-        UIView *view1 = [[LiuLiangView alloc] initWithFrame:CGRectMake(0,0,320,g_screenHeight - kTabBarHeight*2 - kStatusBarHeight)];
+        UIView *view1 = [[LiuLiangView alloc] initWithFrame:CGRectMake(0,0,320,g_screenHeight - kTabBarHeight*2 - kStatusBarHeight) parentVC:self];
         //view1.backgroundColor = [UIColor redColor];
         [_scrollView addSubview:view1];
         
@@ -148,23 +149,10 @@ static LeveyTabBarController *leveyTabBarController;
 {
 	[super loadView];
 	
-    [_containerView addSubview:_navBar];
+    //[_containerView addSubview:_navBar];
 	//[_containerView addSubview:_transitionView];
 	[_containerView addSubview:_tabBar];
 	self.view = _containerView;
-    
-    CGRect tmpCR = _containerView.frame;
-//    NSLog(@"load view");
-//    NSLog(@"container: \n(%f, %f, %f, %f)", tmpCR.origin.x, tmpCR.origin.y,tmpCR.size.width, tmpCR.size.height);
-    
-    tmpCR = _navBar.frame;
-//    NSLog(@"navbar: \n(%f, %f, %f, %f)", tmpCR.origin.x, tmpCR.origin.y,tmpCR.size.width, tmpCR.size.height);
-    
-    tmpCR = _transitionView.frame;
-//    NSLog(@"transition view: \n(%f, %f, %f, %f)", tmpCR.origin.x, tmpCR.origin.y,tmpCR.size.width, tmpCR.size.height);
-    
-    tmpCR = _tabBar.frame;
-//    NSLog(@"container: \n(%f, %f, %f, %f)", tmpCR.origin.x, tmpCR.origin.y,tmpCR.size.width, tmpCR.size.height);
 }
 
 // 当子vc中出现视图切换，再切换回来的时候，需要在此处将 tabbar 和 statusbar 置顶显示
@@ -179,19 +167,6 @@ static LeveyTabBarController *leveyTabBarController;
     [super viewDidLoad];
 	
     self.selectedIndex = 0;
-    
-    CGRect tmpCR = _containerView.frame;
-    NSLog(@"viewDidLoad");
-//    NSLog(@"container: \n(%f, %f, %f, %f)", tmpCR.origin.x, tmpCR.origin.y,tmpCR.size.width, tmpCR.size.height);
-    
-    tmpCR = _navBar.frame;
-//    NSLog(@"navbar: \n(%f, %f, %f, %f)", tmpCR.origin.x, tmpCR.origin.y,tmpCR.size.width, tmpCR.size.height);
-    
-    tmpCR = _transitionView.frame;
-//    NSLog(@"transition view: \n(%f, %f, %f, %f)", tmpCR.origin.x, tmpCR.origin.y,tmpCR.size.width, tmpCR.size.height);
-    
-    tmpCR = _tabBar.frame;
-//    NSLog(@"container: \n(%f, %f, %f, %f)", tmpCR.origin.x, tmpCR.origin.y,tmpCR.size.width, tmpCR.size.height);
 }
 
 - (void)viewDidUnload
@@ -327,7 +302,7 @@ static LeveyTabBarController *leveyTabBarController;
     }
     else
     {
-        [self.view bringSubviewToFront:_navBar];
+        //[self.view bringSubviewToFront:_navBar];
         [self.view bringSubviewToFront:_tabBar];
     }
     
@@ -372,6 +347,17 @@ static LeveyTabBarController *leveyTabBarController;
     l.font = [UIFont systemFontOfSize:72];
     l.backgroundColor = [UIColor clearColor];
     return l;
+}
+
+#pragma switch view controllers
+- (void)switchToCategoryDetails
+{
+    //NSLog(@"switch to category details");
+    CategoryDetailViewController *cagegoryDetailVC = [[CategoryDetailViewController alloc] init];
+    [self.navigationController pushViewController:cagegoryDetailVC animated:YES];
+    
+    // 修改导航条信息
+    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
 }
 
 @end

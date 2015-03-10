@@ -8,14 +8,16 @@
 
 #import "LiuLiangView.h"
 #include "constant.h"
+#import "LeveyTabBarController.h"
 
 @implementation LiuLiangView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame parentVC:(LeveyTabBarController *)parent
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        _parent = parent;
         self.backgroundColor = kColor_RGB(238.0);
         
         // 主视图 圆角效果用按钮实现
@@ -33,6 +35,13 @@
         UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"flowbackgroundgreen.png"]];
         backgroundView.frame = CGRectMake(0, 0, g_applicationFrame.size.width - kMainViewInset*2, kMainViewHeight-kLabelLeftFlowCellHeight*2);   // 注意，背景视图是添加到 _mainView 中的，所以其 frame 值是相对于 _mainView 的坐标
         [_mainView addSubview:backgroundView];
+        
+        // 测试按钮，测试切换视图功能
+        UIButton *btnTestSwitchVC = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 80, 30)];
+        [btnTestSwitchVC addTarget:self action:@selector(testSwitchVC:) forControlEvents:UIControlEventTouchDown];
+        btnTestSwitchVC.titleLabel.text = @"测试视图切换";
+        btnTestSwitchVC.backgroundColor = [UIColor redColor];
+        [_mainView addSubview:btnTestSwitchVC];
         
         /// 各类流量信息
         // 背景
@@ -201,5 +210,10 @@
     // Drawing code
 }
 */
+
+- (void)testSwitchVC:(id)sender
+{
+    [_parent switchToCategoryDetails];
+}
 
 @end

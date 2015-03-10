@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class LeveyTabBarController;
+
 @interface LiuLiangView : UIView
 
 @property(nonatomic, strong) UIView *mainView;
+@property(nonatomic, strong) LeveyTabBarController *parent;
 
+- (id)initWithFrame:(CGRect)frame parentVC:(UIViewController *)parent;
 @end
