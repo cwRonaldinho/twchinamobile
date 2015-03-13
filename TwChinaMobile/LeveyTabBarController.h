@@ -14,7 +14,7 @@
 @class UITabBarController;
 @protocol LeveyTabBarControllerDelegate;
 
-@interface LeveyTabBarController : UIViewController <LeveyTabBarDelegate, CustomNavBabDelegate,UIScrollViewDelegate>
+@interface LeveyTabBarController : UIViewController <LeveyTabBarDelegate, UIScrollViewDelegate>
 {
 	LeveyTabBar *_tabBar;
 	UIView      *_containerView;

@@ -1,0 +1,16 @@
+//
+//  BaseViewController.h
+//  MyMovie
+//
+//  Created by zsm on 14-8-15.
+//  Copyright (c) 2014年 zsm. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface BaseViewController : UIViewController
+
+@property(nonatomic,assign)BOOL isBackButton;
+@property(nonatomic,assign)BOOL isLabel;
+@property(nonatomic,assign)BOOL hiddenTabBar;
+@end

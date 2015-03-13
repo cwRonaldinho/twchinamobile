@@ -10,7 +10,7 @@
 #import "LeveyTabBarController.h"
 #import "GlobalData.h"
 #include "constant.h"
-#import "MyNavViewController.h"
+#import "BaseNavigationController.h"
 
 @implementation AppDelegate
 
@@ -31,8 +31,8 @@
 	_mainViewController = [[LeveyTabBarController alloc] init];
     
     // 主导航vc
-    //MyNavViewController *myNavViewController = [[MyNavViewController alloc] initWithRootViewController:_mainViewController];
-    UINavigationController *myNavViewController = [[UINavigationController alloc] initWithRootViewController:_mainViewController];
+    BaseNavigationController *myNavViewController = [[BaseNavigationController alloc] initWithRootViewController:_mainViewController];
+    //UINavigationController *myNavViewController = [[UINavigationController alloc] initWithRootViewController:_mainViewController];
     myNavViewController.navigationBar.tintColor = [UIColor redColor];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

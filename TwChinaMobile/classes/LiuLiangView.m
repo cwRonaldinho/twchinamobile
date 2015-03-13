@@ -39,8 +39,11 @@
         // 测试按钮，测试切换视图功能
         UIButton *btnTestSwitchVC = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 80, 30)];
         [btnTestSwitchVC addTarget:self action:@selector(testSwitchVC:) forControlEvents:UIControlEventTouchDown];
-        btnTestSwitchVC.titleLabel.text = @"测试视图切换";
-        btnTestSwitchVC.backgroundColor = [UIColor redColor];
+        btnTestSwitchVC.titleLabel.font = [UIFont systemFontOfSize:14];
+        //btnTestSwitchVC.titleLabel.text = @"流量明细";
+        [btnTestSwitchVC setTitle:@"流量明细" forState:UIControlStateNormal];
+        [btnTestSwitchVC setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        btnTestSwitchVC.backgroundColor = [UIColor clearColor];
         [_mainView addSubview:btnTestSwitchVC];
         
         /// 各类流量信息

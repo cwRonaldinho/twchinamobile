@@ -9,8 +9,9 @@
 
 #import "LeveyTabBarController.h"
 #import "LeveyTabBar.h"
-#include "CustomNavBar.h"
-#include "constant.h"
+#import "CustomNavBar.h"
+#import "constant.h"
+#import "GlobalData.h"
 #import "LiuLiangView.h"
 #import "CategoryDetailViewController.h"
 
@@ -44,12 +45,9 @@ static LeveyTabBarController *leveyTabBarController;
 	self = [super init];
 	if (self != nil)
 	{
-		_containerView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        // 从实际效果来看，self.view 的自身坐标y起始于状态栏加导航栏的高度，所以 _containerView 的y坐标需要为0
+        _containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, g_screenWidth, g_screenHeight-kStatusBarHeight-kNavBarHeight)];
         _containerView.backgroundColor = [UIColor whiteColor];
-        
-        // 自定义导航栏
-        //_navBar = [[CustomNavBar alloc] initWithFrame:CGRectMake(0, g_applicationFrame.origin.y, g_screenWidth, kNavBarHeight) ];
-        //_navBar.delegate = self;
         
         // tabbar 各按钮对应图片
         NSMutableDictionary *imgDic = [NSMutableDictionary dictionaryWithCapacity:3];
@@ -74,9 +72,10 @@ static LeveyTabBarController *leveyTabBarController;
         // tabbar
 		_tabBar = [[LeveyTabBar alloc] initWithFrame:CGRectMake(0, _containerView.frame.size.height - kTabBarHeight, g_applicationFrame.size.width, kTabBarHeight) buttonImages:imgArr];
 		_tabBar.delegate = self;
+        [_containerView addSubview:_tabBar];
         
         // 添加滚动主视图
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kTabBarHeight+kStatusBarHeight, g_screenWidth, g_screenHeight - kTabBarHeight*2 - kStatusBarHeight)];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, g_screenWidth, g_screenHeight - kTabBarHeight*2 - kStatusBarHeight)];
         //向 ScrollView 中加入第一个 View，View 的宽度 200 加上两边的空隙 5 等于 ScrollView 的宽度
         UIView *view1 = [[LiuLiangView alloc] initWithFrame:CGRectMake(0,0,320,g_screenHeight - kTabBarHeight*2 - kStatusBarHeight) parentVC:self];
         //view1.backgroundColor = [UIColor redColor];
@@ -112,7 +111,6 @@ static LeveyTabBarController *leveyTabBarController;
         [_containerView addSubview:_scrollView];
 		
         leveyTabBarController = self;
-        //animateDriect = 0;
 	}
 	return self;
 }
@@ -151,8 +149,8 @@ static LeveyTabBarController *leveyTabBarController;
 	
     //[_containerView addSubview:_navBar];
 	//[_containerView addSubview:_transitionView];
-	[_containerView addSubview:_tabBar];
-	self.view = _containerView;
+	//[_containerView addSubview:_tabBar];
+	//self.view = _containerView;
 }
 
 // 当子vc中出现视图切换，再切换回来的时候，需要在此处将 tabbar 和 statusbar 置顶显示
@@ -167,6 +165,45 @@ static LeveyTabBarController *leveyTabBarController;
     [super viewDidLoad];
 	
     self.selectedIndex = 0;
+    
+    // 从实际效果来看，self.view 的自身坐标y起始于状态栏加导航栏的高度
+    [self.view addSubview:_containerView];
+    
+    // 1. 自定义导航栏
+    // 1.1 左侧
+    // logo
+    UIImageView *logoView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (kTabBarHeight -  kLogoHeight) / 2, kLogoWidth, kLogoHeight)];
+    [logoView setImage:[UIImage imageNamed:@"logo.png"]];
+    //self.logoView.frame = CGRectMake(kLogoInset, (kTabBarHeight -  kLogoHeight) / 2, kLogoWidth, kLogoHeight);
+    
+    // 账号
+    // 传统方式
+    NSString *phoneNumber = [[GlobalData sharedSingleton] account];
+    UIFont *font =[UIFont systemFontOfSize:18];
+    // 属性字符串方式
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:phoneNumber];
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, [str length])];
+    [str addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, [str length])];
+    UILabel *accountLabel = [[UILabel alloc] init];
+    accountLabel.attributedText = str;
+    accountLabel.frame = CGRectMake(kLogoWidth + kLogoInset, (kTabBarHeight - str.size.height) / 2 , str.size.width, str.size.height);
+    
+    // 将logo和用户号码标签拼起来作为导航条的左侧按钮视图
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, logoView.frame.size.width + accountLabel.frame.size.width, kNavBarHeight)];
+    [leftView addSubview:logoView];
+    [leftView addSubview:accountLabel];
+    
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
+    self.navigationItem.leftBarButtonItem = leftItem;
+
+    // 1.2 右侧
+    // 通话按钮
+    CGRect frame = CGRectMake(0, 0, kCommBtnWeight, kCommBtnHeight);
+    UIButton *btn = [[UIButton alloc] initWithFrame:frame];
+    [btn setBackgroundImage:[UIImage imageNamed:@"icon_comm.png"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(navCommButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem  *rightItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    self.navigationItem.rightBarButtonItem = rightItem;
 }
 
 - (void)viewDidUnload
@@ -322,17 +359,17 @@ static LeveyTabBarController *leveyTabBarController;
 }
 
 // 自定义导航条的协议实现
-- (void)navBar:(CustomNavBar *)navBar didClickButton:(NSInteger)index
+- (void)navCommButtonClicked:(id)sender
 {
-    if (kCommBtnTag == index) {
-        NSLog(@"comm button clicked");
+    // TODO: 点击通话按钮处理
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"tip" message:@"疯狂开发中..." delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"yes", nil];
+    [alert show];
         
         // 测试视图切换
 //        SwapViewTestVC2 *loginController=[[SwapViewTestVC2 alloc]init];
 //        loginController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 //        //调用此方法显示模态窗口
 //        [self presentViewController:loginController animated:YES completion:nil];
-    }
 }
 
 - (NSInteger)numberOfPages
