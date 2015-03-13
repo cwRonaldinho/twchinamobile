@@ -15,6 +15,8 @@
 #import "LiuLiangView.h"
 #import "CategoryDetailViewController.h"
 
+#define kTagLiuliangView 2000
+
 static LeveyTabBarController *leveyTabBarController;
 
 @implementation UIViewController (LeveyTabBarControllerSupport)
@@ -79,6 +81,7 @@ static LeveyTabBarController *leveyTabBarController;
         //向 ScrollView 中加入第一个 View，View 的宽度 200 加上两边的空隙 5 等于 ScrollView 的宽度
         UIView *view1 = [[LiuLiangView alloc] initWithFrame:CGRectMake(0,0,320,g_screenHeight - kTabBarHeight*2 - kStatusBarHeight) parentVC:self];
         //view1.backgroundColor = [UIColor redColor];
+        view1.tag = kTagLiuliangView;
         [_scrollView addSubview:view1];
         
         //第二个 View，它的宽度加上两边的空隙 5 等于 ScrollView 的宽度，两个 View 间有 10 的间距
@@ -143,15 +146,15 @@ static LeveyTabBarController *leveyTabBarController;
 	return self;
 }*/
 
-- (void)loadView 
-{
-	[super loadView];
-	
-    //[_containerView addSubview:_navBar];
-	//[_containerView addSubview:_transitionView];
-	//[_containerView addSubview:_tabBar];
-	//self.view = _containerView;
-}
+//- (void)loadView 
+//{
+//	[super loadView];
+//	
+//    //[_containerView addSubview:_navBar];
+//	//[_containerView addSubview:_transitionView];
+//	//[_containerView addSubview:_tabBar];
+//	//self.view = _containerView;
+//}
 
 // 当子vc中出现视图切换，再切换回来的时候，需要在此处将 tabbar 和 statusbar 置顶显示
 //- (void)viewWillAppear:(BOOL)animated
@@ -204,6 +207,13 @@ static LeveyTabBarController *leveyTabBarController;
     [btn addTarget:self action:@selector(navCommButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *rightItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+//    if (YES == animated) {
+//        [_containerView setNeedsDisplay];
+//    }
 }
 
 - (void)viewDidUnload
@@ -362,8 +372,17 @@ static LeveyTabBarController *leveyTabBarController;
 - (void)navCommButtonClicked:(id)sender
 {
     // TODO: 点击通话按钮处理
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"tip" message:@"疯狂开发中..." delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"yes", nil];
-    [alert show];
+    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"tip" message:@"疯狂开发中..." delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"yes", nil];
+    //[alert show];
+    
+    // 测试刷新主视图内容
+    NSString *upadteTime = [[GlobalData sharedSingleton] lastQueryTime];
+    LiuLiangView *view1 = (LiuLiangView *)[_containerView viewWithTag:kTagLiuliangView];
+    [view1 reladData];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [_containerView setNeedsDisplay];
+//    });
+    //[self.view setNeedsDisplay];
         
         // 测试视图切换
 //        SwapViewTestVC2 *loginController=[[SwapViewTestVC2 alloc]init];

@@ -13,6 +13,7 @@
 @property (nonatomic, copy) NSString *account;              // 账户信息，即用户手机号
 @property (nonatomic, assign) NSNumber *totalFlow;      // 总流量
 @property (nonatomic, assign) NSNumber *remainFlow;   // 剩余流量
+@property (nonatomic, copy) NSString *lastQueryTime;    // 最后一次查询时间
 
 + (GlobalData *)sharedSingleton; 
 

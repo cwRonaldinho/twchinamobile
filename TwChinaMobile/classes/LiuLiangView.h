@@ -16,4 +16,5 @@
 @property(nonatomic, strong) LeveyTabBarController *parent;
 
 - (id)initWithFrame:(CGRect)frame parentVC:(UIViewController *)parent;
+- (void)reladData;
 @end

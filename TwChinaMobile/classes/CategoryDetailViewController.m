@@ -7,6 +7,7 @@
 //
 
 #import "CategoryDetailViewController.h"
+#import "GlobalData.h"
 
 @interface CategoryDetailViewController ()
 
@@ -18,6 +19,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor grayColor];
+    
+    // 模拟在此处修改全局数据，如查询时间，进而观察主页面中的数据是否会更新
+    [[GlobalData sharedSingleton] setLastQueryTime:@"123"];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,8 +7,11 @@
 //
 
 #import "LiuLiangView.h"
-#include "constant.h"
+#import "constant.h"
+#import "GlobalData.h"
 #import "LeveyTabBarController.h"
+
+#define kTagQueryTimeLabel 1000
 
 @implementation LiuLiangView
 
@@ -20,7 +23,7 @@
         _parent = parent;
         self.backgroundColor = kColor_RGB(238.0);
         
-        // 主视图 圆角效果用按钮实现
+        // 1. 主视图 圆角效果用按钮实现
         _mainView = [[UIButton alloc] initWithFrame:CGRectMake(kMainViewInset, kMainViewInset, g_applicationFrame.size.width - kMainViewInset*2, kMainViewHeight)];
         [_mainView.layer setMasksToBounds:YES];
         [_mainView.layer setCornerRadius:10.0]; //设置矩圆角半径
@@ -31,10 +34,20 @@
         _mainView.backgroundColor = [UIColor whiteColor];
         //[_mainView addSubview:btn];
         
-        // 主视图背景
+        // 1.1 主视图背景
         UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"flowbackgroundgreen.png"]];
         backgroundView.frame = CGRectMake(0, 0, g_applicationFrame.size.width - kMainViewInset*2, kMainViewHeight-kLabelLeftFlowCellHeight*2);   // 注意，背景视图是添加到 _mainView 中的，所以其 frame 值是相对于 _mainView 的坐标
         [_mainView addSubview:backgroundView];
+        
+        // 1.2 查询时间
+        NSString *queryTime = [NSString stringWithFormat:@"查询时间:%@", [[GlobalData sharedSingleton] lastQueryTime]];
+        NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:queryTime];
+        [str addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, [str length])];
+        [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:10] range:NSMakeRange(0, [str length])];
+        UILabel *queryTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake((g_screenWidth - kMainViewInset*2 - str.size.width)/2, 4, str.size.width, str.size.height)];
+        queryTimeLabel.attributedText = str;
+        queryTimeLabel.tag = kTagQueryTimeLabel;
+        [_mainView addSubview:queryTimeLabel];
         
         // 测试按钮，测试切换视图功能
         UIButton *btnTestSwitchVC = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 80, 30)];
@@ -157,7 +170,7 @@
         
         [self addSubview:_mainView];
         
-        /// 功能按钮
+        // 2. 功能按钮
         // "分析流量"按钮
         CGSize btnSize = CGSizeMake((self.bounds.size.width - kMainViewInset*2 - kFuncButtonDistance*3) / 4, (self.bounds.size.width - kMainViewInset*2 - kFuncButtonDistance*3) / 4);
         //float btnY = self.view.frame.size.height - kFuncButtonBottomInset - btnSize.height; // 按钮相对于本视图的y坐标，减法方式
@@ -203,6 +216,12 @@
         }
     }
     return self;
+}
+
+- (void)reladData
+{
+    UILabel *labelQueryTime = [self viewWithTag:kTagQueryTimeLabel];
+    labelQueryTime.text = @"test";
 }
 
 /*

@@ -20,7 +20,18 @@
 {
     // Override point for customization after application launch.
     // 加载全局数据
+    // 账号
     [[GlobalData sharedSingleton] setAccount: @"13888888888"];
+    // 查询时间
+//    NSString *date;
+//    NSFormatter *formatter = [[NSDateFormatter alloc] init];
+//    formatter.d
+    // 获取系统当前时间
+    NSString* date;
+    NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"YYYY年MM月dd日hh时mm分ss秒"];
+    date = [formatter stringFromDate:[NSDate date]];
+    [[GlobalData sharedSingleton] setLastQueryTime:date];
     
     g_windowsBounds = [ UIScreen mainScreen ].bounds;
     g_applicationFrame = [ UIScreen mainScreen ].applicationFrame;
