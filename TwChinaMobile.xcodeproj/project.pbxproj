@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D101C5E31AB6D7E9003E933B /* NSString+NSStringExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D101C5E21AB6D7E9003E933B /* NSString+NSStringExt.m */; };
 		D1328D5E1A871CF000CDE62A /* GlobalData.m in Sources */ = {isa = PBXBuildFile; fileRef = D1328D5D1A871CF000CDE62A /* GlobalData.m */; };
 		D19CB9D61AB191B9005CE53B /* test_bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = D19CB9D51AB191B9005CE53B /* test_bg2.png */; };
 		D1B65AFF1A7C5CF000C66F69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B65AFE1A7C5CF000C66F69 /* Foundation.framework */; };
@@ -83,6 +84,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D101C5E11AB6D7E9003E933B /* NSString+NSStringExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NSStringExt.h"; path = "classes/extent/NSString+NSStringExt.h"; sourceTree = "<group>"; };
+		D101C5E21AB6D7E9003E933B /* NSString+NSStringExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NSStringExt.m"; path = "classes/extent/NSString+NSStringExt.m"; sourceTree = "<group>"; };
 		D1328D5C1A871CF000CDE62A /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalData.h; path = classes/GlobalData.h; sourceTree = "<group>"; };
 		D1328D5D1A871CF000CDE62A /* GlobalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalData.m; path = classes/GlobalData.m; sourceTree = "<group>"; };
 		D19CB9D51AB191B9005CE53B /* test_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_bg2.png; path = res/test_bg2.png; sourceTree = "<group>"; };
@@ -186,6 +189,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D101C5E01AB6D74B003E933B /* category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = category;
+			sourceTree = "<group>";
+		};
 		D1B65AF21A7C5CF000C66F69 = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +366,8 @@
 			isa = PBXGroup;
 			children = (
 				D1BDFAA21A80F66F0055E413 /* UIImage+UIImageExt.h */,
+				D101C5E11AB6D7E9003E933B /* NSString+NSStringExt.h */,
+				D101C5E21AB6D7E9003E933B /* NSString+NSStringExt.m */,
 				D1BDFAA31A80F66F0055E413 /* UIImage+UIImageExt.m */,
 			);
 			name = extent;
@@ -374,6 +386,7 @@
 		D1BD97AD1AA9585E00B03A1E /* common */ = {
 			isa = PBXGroup;
 			children = (
+				D101C5E01AB6D74B003E933B /* category */,
 				D1C17EED1A8384B100DF5D29 /* constant.h */,
 			);
 			name = common;
@@ -544,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B934E01A824CA500F4E2C6 /* LeveyTabBar.m in Sources */,
+				D101C5E31AB6D7E9003E933B /* NSString+NSStringExt.m in Sources */,
 				D1D25B381AAF267100E66C85 /* CategoryDetailViewController.m in Sources */,
 				D1BEDC371AB17B370038AAEC /* BaseViewController.m in Sources */,
 				D1B65B0F1A7C5CF000C66F69 /* AppDelegate.m in Sources */,

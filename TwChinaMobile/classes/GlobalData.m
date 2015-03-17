@@ -23,4 +23,10 @@
     }
 }
 
+- (void)setTotalRemainFlow:(unsigned int)totalRemainFlow
+{
+    _totalRemainFlow = totalRemainFlow;
+    self.totalUsedFlow = self.totalFlow - totalRemainFlow;
+}
+
 @end

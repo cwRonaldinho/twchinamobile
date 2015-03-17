@@ -111,6 +111,9 @@ static LeveyTabBarController *leveyTabBarController;
         
         _scrollView.delegate = self;
         
+        // 测试 UIScrollView 禁止下拉功能。好使，可在不需要下拉的 offset 处进行该设置
+        //_scrollView.bounces = NO;
+        
         [_containerView addSubview:_scrollView];
 		
         leveyTabBarController = self;
@@ -378,7 +381,7 @@ static LeveyTabBarController *leveyTabBarController;
     // 测试刷新主视图内容
     NSString *upadteTime = [[GlobalData sharedSingleton] lastQueryTime];
     LiuLiangView *view1 = (LiuLiangView *)[_containerView viewWithTag:kTagLiuliangView];
-    [view1 reladData];
+    [view1 reloadData];
 //    dispatch_async(dispatch_get_main_queue(), ^{
 //        [_containerView setNeedsDisplay];
 //    });
