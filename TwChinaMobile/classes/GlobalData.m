@@ -53,8 +53,13 @@
     date = [formatter stringFromDate:[NSDate date]];
     _lastQueryTime = date;
     
-    self.totalRemainFlow = _totalRemainFlow - 1;
-    self.internalRemainFlow = _internalRemainFlow - 1;
+    self.totalRemainFlow = _totalRemainFlow - 100;
+    self.internalRemainFlow = _internalRemainFlow - 100;
+    
+    if (self.totalRemainFlow > self.totalFlow) {
+        self.internalRemainFlow = 100;
+        self.totalRemainFlow =_totalFlow - self.internalRemainFlow;
+    }
 }
 
 @end

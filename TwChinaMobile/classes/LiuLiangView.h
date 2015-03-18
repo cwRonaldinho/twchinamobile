@@ -15,6 +15,8 @@
 @property(nonatomic, strong) UIView *mainView;
 @property(nonatomic, strong) LeveyTabBarController *parent;
 
+@property(nonatomic)dispatch_source_t animateTimer;     // 动画定时器
+
 - (id)initWithFrame:(CGRect)frame parentVC:(UIViewController *)parent;
 - (void)reloadData;
 @end

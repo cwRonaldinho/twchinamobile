@@ -212,13 +212,6 @@ static LeveyTabBarController *leveyTabBarController;
     self.navigationItem.rightBarButtonItem = rightItem;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-//    if (YES == animated) {
-//        [_containerView setNeedsDisplay];
-//    }
-}
-
 - (void)viewDidUnload
 {
 	[super viewDidUnload];
@@ -379,7 +372,7 @@ static LeveyTabBarController *leveyTabBarController;
     //[alert show];
     
     // 测试刷新主视图内容
-    NSString *upadteTime = [[GlobalData sharedSingleton] lastQueryTime];
+    //NSString *upadteTime = [[GlobalData sharedSingleton] lastQueryTime];
     LiuLiangView *view1 = (LiuLiangView *)[_containerView viewWithTag:kTagLiuliangView];
     [view1 reloadData];
 //    dispatch_async(dispatch_get_main_queue(), ^{

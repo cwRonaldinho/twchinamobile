@@ -10,6 +10,7 @@
 		D101C5E31AB6D7E9003E933B /* NSString+NSStringExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D101C5E21AB6D7E9003E933B /* NSString+NSStringExt.m */; };
 		D1328D5E1A871CF000CDE62A /* GlobalData.m in Sources */ = {isa = PBXBuildFile; fileRef = D1328D5D1A871CF000CDE62A /* GlobalData.m */; };
 		D19CB9D61AB191B9005CE53B /* test_bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = D19CB9D51AB191B9005CE53B /* test_bg2.png */; };
+		D1B2BB6D1AB81CE500FC95B2 /* BackCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B2BB6C1AB81CE500FC95B2 /* BackCircleView.m */; };
 		D1B65AFF1A7C5CF000C66F69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B65AFE1A7C5CF000C66F69 /* Foundation.framework */; };
 		D1B65B011A7C5CF000C66F69 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B65B001A7C5CF000C66F69 /* CoreGraphics.framework */; };
 		D1B65B031A7C5CF000C66F69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B65B021A7C5CF000C66F69 /* UIKit.framework */; };
@@ -89,6 +90,8 @@
 		D1328D5C1A871CF000CDE62A /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalData.h; path = classes/GlobalData.h; sourceTree = "<group>"; };
 		D1328D5D1A871CF000CDE62A /* GlobalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalData.m; path = classes/GlobalData.m; sourceTree = "<group>"; };
 		D19CB9D51AB191B9005CE53B /* test_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_bg2.png; path = res/test_bg2.png; sourceTree = "<group>"; };
+		D1B2BB6B1AB81CE500FC95B2 /* BackCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackCircleView.h; path = classes/BackCircleView.h; sourceTree = "<group>"; };
+		D1B2BB6C1AB81CE500FC95B2 /* BackCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackCircleView.m; path = classes/BackCircleView.m; sourceTree = "<group>"; };
 		D1B65AFB1A7C5CF000C66F69 /* TwChinaMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwChinaMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B65AFE1A7C5CF000C66F69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D1B65B001A7C5CF000C66F69 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -358,6 +361,8 @@
 			children = (
 				D1D589641AA5467C00DC1BA7 /* LiuLiangView.h */,
 				D1D589651AA5467C00DC1BA7 /* LiuLiangView.m */,
+				D1B2BB6B1AB81CE500FC95B2 /* BackCircleView.h */,
+				D1B2BB6C1AB81CE500FC95B2 /* BackCircleView.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -556,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1B2BB6D1AB81CE500FC95B2 /* BackCircleView.m in Sources */,
 				D1B934E01A824CA500F4E2C6 /* LeveyTabBar.m in Sources */,
 				D101C5E31AB6D7E9003E933B /* NSString+NSStringExt.m in Sources */,
 				D1D25B381AAF267100E66C85 /* CategoryDetailViewController.m in Sources */,

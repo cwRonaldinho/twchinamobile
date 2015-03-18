@@ -11,6 +11,7 @@
 #import "GlobalData.h"
 #import "LeveyTabBarController.h"
 #import "NSString+NSStringExt.h"
+#import "BackCircleView.h"
 
 // 控件 tag 值定义
 #define kTagLabelQueryTime              1100
@@ -22,6 +23,7 @@
 #define kTagLabelLocalFlow                1106
 #define kTagLabelLocal4G                   1107
 #define kTagLabelLocalIdle                 1108
+#define kTagViewBackCircle                 1109
 
 // 流量界面相关定义
 #define kInsetMainViewHV 8.0f             // 主视图区到两边及上面元素的距离
@@ -51,7 +53,9 @@
 #define kColorRemainValue [UIColor colorWithRed:65.0/255 green:197.0/255 blue:77.0/255 alpha:1.0]
 #define kColorTotalValue [UIColor colorWithRed:251.0/255 green:109.0/255 blue:160.0/255 alpha:1.0]
 
-
+@interface LiuLiangView()
+- (void) startAnimate;
+@end
 
 @implementation LiuLiangView
 
@@ -130,7 +134,14 @@
         UIImageView *imageViewBackCircle = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"flowbackcirgreen.png"]];
         imageViewBackCircle.frame = CGRectMake((g_screenWidth -kInsetMainViewHV*2 - kWidthBackCircle)/2, kInsetTopBackCircle, kWidthBackCircle, kHeightBackCircle);
         [_mainView addSubview:imageViewBackCircle];
-
+        [self startAnimate];
+        
+        // 1.4.1 剩余流量环
+        BackCircleView *backCicleView = [[BackCircleView alloc] initWithFrame:CGRectMake(0, 0, imageViewBackCircle.bounds.size.width, imageViewBackCircle.bounds.size.height) totalAmount:[[GlobalData sharedSingleton] totalFlow]];
+        backCicleView.backgroundColor = [UIColor clearColor];
+        [backCicleView setCurAmount:[[GlobalData sharedSingleton] totalRemainFlow]];
+        backCicleView.tag = kTagViewBackCircle;
+        [imageViewBackCircle addSubview:backCicleView];
         
         // 测试按钮，测试切换视图功能
         UIButton *btnTestSwitchVC = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 160, 30)];
@@ -342,7 +353,7 @@
     // 1.6.2 "本地通用流量"value
     // 删除旧标签
     UILabel *labelInternalGeneralValue = (UILabel *)[_mainView viewWithTag:kTagLabelInternalFlow];
-    frame = labelInternalGeneralValue.frame;
+    //frame = labelInternalGeneralValue.frame;
     [labelInternalGeneralValue removeFromSuperview];
     // 创建新标签
     labelInternalGeneralValue = [[UILabel alloc] init];
@@ -355,6 +366,9 @@
     labelInternalGeneralValue.frame = CGRectMake(_mainView.frame.size.width/2 - kLabelLeftFlowRightInset - strKey.size.width, _mainView.frame.size.height - kHeightRemainFlowCell - kLabelLeftFlowVerticalInset  - strKey.size.height - kLabelLeftFlowVerticalInset, strKey.size.width, strKey.size.height);
     labelInternalGeneralValue.tag = kTagLabelInternalFlow;
     [_mainView addSubview:labelInternalGeneralValue];
+    
+    // 测试修改环数据
+    [self startAnimate];
 }
 
 /*
@@ -369,6 +383,28 @@
 - (void)testSwitchVC:(id)sender
 {
     [_parent switchToCategoryDetails];
+}
+
+// 开始剩余流量信息动画展示
+- (void) startAnimate
+{
+    unsigned int nTotalRemain = [[GlobalData sharedSingleton] totalRemainFlow];
+    __block unsigned int nCurShow = [[GlobalData sharedSingleton] totalFlow];
+
+    _animateTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,dispatch_get_main_queue()); // 只能用主线程队列才有效果
+    dispatch_source_set_timer(_animateTimer, dispatch_walltime(DISPATCH_TIME_NOW, 0), USEC_PER_SEC, 0);
+    dispatch_source_set_event_handler(_animateTimer, ^{
+        if (nCurShow >= nTotalRemain) {
+            BackCircleView *viewBackCircle = (BackCircleView *)[_mainView viewWithTag:kTagViewBackCircle];
+            [viewBackCircle setCurAmount:nCurShow];
+            nCurShow-=5;
+        }
+        else {
+            dispatch_source_cancel(_animateTimer);
+        }
+    });
+    
+    dispatch_resume(_animateTimer);
 }
 
 @end
