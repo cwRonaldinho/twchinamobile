@@ -23,17 +23,20 @@
 #define kTagLabelLocalFlow                1106
 #define kTagLabelLocal4G                   1107
 #define kTagLabelLocalIdle                 1108
-#define kTagViewBackCircle                 1109
+#define kTagViewBackCircle                1109
+#define kTagLabelRationRemain         1110
+#define kTagLabelTotalRemainAmount 1111
+#define kTagImageViewTotalRemain                1112
 
 // 流量界面相关定义
 #define kInsetMainViewHV 8.0f             // 主视图区到两边及上面元素的距离
 #define kMainViewHeight 300.0f       // 主视图高度
 #define kMainViewButtonDistance 8.0f        // 主视图上下部分间距离
-#define kInsetHorizontalTotalInfo 14      // 套餐总量标签距左边框距离，本月已用标签距右边框距离
+#define kInsetHorizontalTotalInfo 10      // 套餐总量标签距左边框距离，本月已用标签距右边框距离
 #define kInsetTopTotalInfo 140      // 套餐总量标签/本月已用标签距上边框距离
-#define kWidthBackCircle 160        // 背景环宽度
-#define kHeightBackCircle 160       // 背景环高度
-#define kInsetTopBackCircle 40      // 背景环距顶部距离
+#define kWidthBackCircle 180        // 背景环宽度
+#define kHeightBackCircle 180       // 背景环高度
+#define kInsetTopBackCircle 24      // 背景环距顶部距离
 #define kFuncButtonDistance 4.0f    // 功能按钮之间间隔，通过该值能计算出功能按钮的宽度，如高度和宽度相同，则高度也通过该值计算即可
 //#define kFuncButtonBottomInset 40.0f    // 功能按钮与下面元素距离
 #define kLabelLeftFlowRightInset 32.0f       // 剩余流量标签距离右边元素的距离
@@ -133,6 +136,7 @@
         // 1.4 动画背景
         UIImageView *imageViewBackCircle = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"flowbackcirgreen.png"]];
         imageViewBackCircle.frame = CGRectMake((g_screenWidth -kInsetMainViewHV*2 - kWidthBackCircle)/2, kInsetTopBackCircle, kWidthBackCircle, kHeightBackCircle);
+        imageViewBackCircle.tag = kTagImageViewTotalRemain;
         [_mainView addSubview:imageViewBackCircle];
         [self startAnimate];
         
@@ -142,6 +146,47 @@
         [backCicleView setCurAmount:[[GlobalData sharedSingleton] totalRemainFlow]];
         backCicleView.tag = kTagViewBackCircle;
         [imageViewBackCircle addSubview:backCicleView];
+        
+        // 1.4.2 剩余流量百分数
+        // 1.4.2.1 标题
+        NSString *title = @"月套餐剩余";
+        UILabel *labelTotalTitle = [title createFontedLabel:[UIFont systemFontOfSize:15]];
+        labelTotalTitle.center = CGPointMake(imageViewBackCircle.bounds.size.width / 2, 64);
+        [imageViewBackCircle addSubview:labelTotalTitle];
+        // 1.4.2.2 值
+        NSString *rationRemain = @"100";
+        UILabel *labelRationRemain = [rationRemain createFontedLabel:[UIFont fontWithName:@"HelveticaNeue-Bold" size:30]];
+        attrString = (NSMutableAttributedString *)labelRationRemain.attributedText;
+        [attrString addAttribute:NSForegroundColorAttributeName value:kColorBackCircle range:NSMakeRange(0, 3)];
+        labelRationRemain.center = CGPointMake(labelTotalTitle.frame.origin.x + labelRationRemain.frame.size.width/2, labelTotalTitle.frame.origin.y + labelTotalTitle.frame.size.height + labelRationRemain.frame.size.height/2);
+        labelRationRemain.tag = kTagLabelRationRemain;
+        [imageViewBackCircle addSubview:labelRationRemain];
+        // 1.4.2.3 百分号
+        NSString *ration = @"%";
+        UILabel *labelRation = [ration createFontedLabel:[UIFont fontWithName:@"HelveticaNeue-Bold" size:20]];
+        attrString = (NSMutableAttributedString *)labelRation.attributedText;
+        [attrString addAttribute:NSForegroundColorAttributeName value:kColorBackCircle range:NSMakeRange(0, [ration length])];
+        labelRation.center = CGPointMake(labelRationRemain.frame.origin.x + labelRationRemain.frame.size.width + labelRation.frame.size.width/2, labelRationRemain.center.y);
+        [imageViewBackCircle addSubview:labelRation];
+        // 1.4.2.4 本月总剩余量标签
+        title = @"本月剩余";
+        UILabel *labelTotalRemainAmountTitle = [title createFontedLabel:[UIFont systemFontOfSize:10]];
+        attrString = (NSMutableAttributedString *)labelTotalRemainAmountTitle.attributedText;
+        [attrString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, [title length])];
+        labelTotalRemainAmountTitle.center = CGPointMake(imageViewBackCircle.bounds.size.width / 2, 144);
+        [imageViewBackCircle addSubview:labelTotalRemainAmountTitle];
+        // 1.4.2.5 本月总剩余量值
+        UILabel *labelTotalRemainAmountValue = [[UILabel alloc] init];
+        NSString *value = [NSString stringWithFormat:@"%dM", [[GlobalData sharedSingleton] totalRemainFlow]];
+        NSMutableAttributedString *strKey = [[NSMutableAttributedString alloc] initWithString:value];
+        [strKey addAttribute:NSFontAttributeName value:kFontDetailValue range:NSMakeRange(0, [value length] - 1)];    // 数字字体
+        [strKey addAttribute:NSFontAttributeName value:kFontM range:NSMakeRange([value length] - 1, 1)];    // m单位字体
+        [strKey addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, [value length])];
+        labelTotalRemainAmountValue.attributedText = strKey;
+        labelTotalRemainAmountValue.frame = CGRectMake((imageViewBackCircle.bounds.size.width - strKey.size.width) / 2, labelTotalRemainAmountTitle.frame.origin.y + labelTotalRemainAmountTitle.frame.size.height, strKey.size.width, strKey.size.height);
+        labelTotalRemainAmountValue.tag = kTagLabelTotalRemainAmount;
+        [imageViewBackCircle addSubview:labelTotalRemainAmountValue];
+
         
         // 测试按钮，测试切换视图功能
         UIButton *btnTestSwitchVC = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 160, 30)];
@@ -165,7 +210,7 @@
 //        UIColor *kColorTotalValue = [UIColor colorWithRed:251.0/255 green:109.0/255 blue:160.0/255 alpha:1.0];
         
         // 先计算出名称和值各自的高度
-        NSMutableAttributedString *strKey = [[NSMutableAttributedString alloc] initWithString:@"高度"];
+        strKey = [[NSMutableAttributedString alloc] initWithString:@"高度"];
         //[strKey addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, [strKey length])];
         [strKey addAttribute:NSFontAttributeName value:fontKey range:NSMakeRange(0, [strKey length])];
         float heightKey = strKey.size.height;   // 名称字符高度
@@ -367,7 +412,25 @@
     labelInternalGeneralValue.tag = kTagLabelInternalFlow;
     [_mainView addSubview:labelInternalGeneralValue];
     
-    // 测试修改环数据
+    // // 1.4.2.5 本月总剩余量标签
+    // 删除旧标签
+    UILabel *labelTotalRemainValue = (UILabel *)[_mainView viewWithTag:kTagLabelTotalRemainAmount];
+    frame = labelTotalRemainValue.frame;
+    [labelTotalRemainValue removeFromSuperview];
+    // 创建新标签
+    UILabel *labelTotalRemainAmountValue = [[UILabel alloc] init];
+    NSString *value = [NSString stringWithFormat:@"%dM", [[GlobalData sharedSingleton] totalRemainFlow]];
+    strKey = [[NSMutableAttributedString alloc] initWithString:value];
+    [strKey addAttribute:NSFontAttributeName value:kFontDetailValue range:NSMakeRange(0, [value length] - 1)];    // 数字字体
+    [strKey addAttribute:NSFontAttributeName value:kFontM range:NSMakeRange([value length] - 1, 1)];    // m单位字体
+    [strKey addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, [value length])];
+    labelTotalRemainAmountValue.attributedText = strKey;
+    labelTotalRemainAmountValue.frame = frame;
+    labelTotalRemainAmountValue.tag = kTagLabelTotalRemainAmount;
+    UIImageView *viewBackCircle = (UIImageView *)[_mainView viewWithTag:kTagImageViewTotalRemain];
+    [viewBackCircle addSubview:labelTotalRemainAmountValue];
+    
+    // 开启动画
     [self startAnimate];
 }
 
@@ -390,6 +453,7 @@
 {
     unsigned int nTotalRemain = [[GlobalData sharedSingleton] totalRemainFlow];
     __block unsigned int nCurShow = [[GlobalData sharedSingleton] totalFlow];
+    unsigned int nTotal = [[GlobalData sharedSingleton] totalFlow];
 
     _animateTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,dispatch_get_main_queue()); // 只能用主线程队列才有效果
     dispatch_source_set_timer(_animateTimer, dispatch_walltime(DISPATCH_TIME_NOW, 0), USEC_PER_SEC, 0);
@@ -397,6 +461,16 @@
         if (nCurShow >= nTotalRemain) {
             BackCircleView *viewBackCircle = (BackCircleView *)[_mainView viewWithTag:kTagViewBackCircle];
             [viewBackCircle setCurAmount:nCurShow];
+            
+            // 剩余流量百分比
+            UILabel *labelRationRemain = (UILabel *)[_mainView viewWithTag:kTagLabelRationRemain];
+            NSDictionary *attr = [(NSAttributedString *)labelRationRemain.attributedText attributesAtIndex:0 effectiveRange:NULL];
+            if (nCurShow == nTotal) {
+                labelRationRemain.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d", (int)(nCurShow*100.0/nTotal)] attributes:attr];
+            }
+            else {
+                labelRationRemain.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"  %d", (int)(nCurShow*100.0/nTotal)] attributes:attr];
+            }
             nCurShow-=5;
         }
         else {

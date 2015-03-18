@@ -29,15 +29,23 @@
     [formatter setDateFormat:@"YYYY年MM月dd日hh时mm分ss秒"];
     date = [formatter stringFromDate:[NSDate date]];
     [[GlobalData sharedSingleton] setLastQueryTime:date];
-    [[GlobalData sharedSingleton] setTotalFlow:1600];
-    [[GlobalData sharedSingleton] setTotalRemainFlow:200];
-    [[GlobalData sharedSingleton] setInternalRemainFlow:100];
+//    [[GlobalData sharedSingleton] setTotalFlow:2000];
+//    [[GlobalData sharedSingleton] setTotalRemainFlow:1800];
+//    [[GlobalData sharedSingleton] setTotalUsedFlow:200];
+//    [[GlobalData sharedSingleton] setInternalRemainFlow:1700];
+//    [[GlobalData sharedSingleton] setLocalIdleRemainFlow:100];
+    [[GlobalData sharedSingleton] setTotalFlow:2000];
+    [[GlobalData sharedSingleton] setTotalRemainFlow:2000];
+    [[GlobalData sharedSingleton] setTotalUsedFlow:0];
+    [[GlobalData sharedSingleton] setInternalRemainFlow:1900];
     [[GlobalData sharedSingleton] setLocalIdleRemainFlow:100];
     
     g_windowsBounds = [ UIScreen mainScreen ].bounds;
     g_applicationFrame = [ UIScreen mainScreen ].applicationFrame;
     g_screenWidth = g_windowsBounds.size.width;
     g_screenHeight = g_windowsBounds.size.height;
+    // __TW__DEBUG
+    NSLog(@"screen width: %f, height: %f", g_screenWidth, g_screenHeight);
     
     // 主视图控制器
 	_mainViewController = [[LeveyTabBarController alloc] init];

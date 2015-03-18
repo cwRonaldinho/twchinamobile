@@ -38,12 +38,6 @@
     return self;
 }
 
-- (void)setTotalRemainFlow:(unsigned int)totalRemainFlow
-{
-    _totalRemainFlow = totalRemainFlow;
-    self.totalUsedFlow = self.totalFlow - totalRemainFlow;
-}
-
 - (void)testUpdateData
 {
     // 获取系统当前时间
@@ -53,13 +47,10 @@
     date = [formatter stringFromDate:[NSDate date]];
     _lastQueryTime = date;
     
-    self.totalRemainFlow = _totalRemainFlow - 100;
-    self.internalRemainFlow = _internalRemainFlow - 100;
-    
-    if (self.totalRemainFlow > self.totalFlow) {
-        self.internalRemainFlow = 100;
-        self.totalRemainFlow =_totalFlow - self.internalRemainFlow;
-    }
+    unsigned nCost = 100;
+    self.totalRemainFlow -= nCost;
+    self.internalRemainFlow -= nCost;
+    self.totalUsedFlow = self.totalFlow - self.totalRemainFlow;
 }
 
 @end

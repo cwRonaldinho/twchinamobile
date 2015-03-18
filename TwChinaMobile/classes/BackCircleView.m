@@ -7,6 +7,8 @@
 //
 
 #import "BackCircleView.h"
+#import "NSString+NSStringExt.h"
+#import "constant.h"
 
 @implementation BackCircleView
 
@@ -28,14 +30,14 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    UIColor *backColor = [UIColor greenColor];
+    UIColor *backColor = kColorBackCircle;
     [backColor set];
     
     //CGContextRef context = UIGraphicsGetCurrentContext();
     
     float rationLeft = (_curAmount*1.0/_totalAmount) * 3 / 2;
     //UIBezierPath *innerCircle = [UIBezierPath bezierPathWithArcCenter:CGPointMake(rect.size.width/2, rect.size.height/2) radius:rect.size.width/2 - 15 startAngle:M_PI*3/4 endAngle:(3/4 + rationLeft)*M_PI clockwise:YES];
-    UIBezierPath *innerCircle = [UIBezierPath bezierPathWithArcCenter:CGPointMake(rect.size.width/2, rect.size.height/2) radius:rect.size.width/2 - 15 startAngle:M_PI*3/4 endAngle:M_PI * (3/4.0 +rationLeft)  clockwise:YES];
+    UIBezierPath *innerCircle = [UIBezierPath bezierPathWithArcCenter:CGPointMake(rect.size.width/2, rect.size.height/2) radius:rect.size.width/2 - 17 startAngle:M_PI*3/4 endAngle:M_PI * (3/4.0 +rationLeft)  clockwise:YES];
     
     innerCircle.lineWidth = 12.0;
     innerCircle.lineCapStyle = kCGLineCapRound;
