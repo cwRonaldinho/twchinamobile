@@ -18,6 +18,8 @@
     if (self) {
         _totalAmount = totalAmount;
         _curAmount = _totalAmount;
+        
+        [self drawCircle];
     }
     return self;
 }
@@ -45,6 +47,20 @@
     [innerCircle stroke];
     
     //CGContextStrokePath(context);
+}
+
+- (void)drawCircle
+{
+    CAShapeLayer *_trackLayer = [CAShapeLayer layer];//创建一个track shape layer
+    _trackLayer.frame = CGRectMake(0, 0, 50, 50);
+    [self.layer addSublayer:_trackLayer];
+    _trackLayer.fillColor = [[UIColor clearColor] CGColor];
+    _trackLayer.strokeColor = [UIColor redColor].CGColor;//指定path的渲染颜色
+    _trackLayer.opacity = 0.25; //背景同学你就甘心做背景吧，不要太明显了，透明度小一点
+    _trackLayer.lineCap = kCALineCapRound;//指定线的边缘是圆的
+    _trackLayer.lineWidth = 4;//线的宽度
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(40, 40) radius:0 startAngle:0 endAngle:M_PI_2 clockwise:YES];//上面说明过了用来构建圆形
+    _trackLayer.path =[path CGPath];
 }
 
 

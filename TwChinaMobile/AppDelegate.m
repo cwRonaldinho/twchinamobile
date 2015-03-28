@@ -29,16 +29,11 @@
     [formatter setDateFormat:@"YYYY年MM月dd日hh时mm分ss秒"];
     date = [formatter stringFromDate:[NSDate date]];
     [[GlobalData sharedSingleton] setLastQueryTime:date];
-//    [[GlobalData sharedSingleton] setTotalFlow:2000];
-//    [[GlobalData sharedSingleton] setTotalRemainFlow:1800];
-//    [[GlobalData sharedSingleton] setTotalUsedFlow:200];
-//    [[GlobalData sharedSingleton] setInternalRemainFlow:1700];
-//    [[GlobalData sharedSingleton] setLocalIdleRemainFlow:100];
-    [[GlobalData sharedSingleton] setTotalFlow:2000];
-    [[GlobalData sharedSingleton] setTotalRemainFlow:2000];
-    [[GlobalData sharedSingleton] setTotalUsedFlow:0];
-    [[GlobalData sharedSingleton] setInternalRemainFlow:1900];
+    [[GlobalData sharedSingleton] setInternalTotalFlow:1900];
+    [[GlobalData sharedSingleton] setInternalRemainFlow:200];
+    [[GlobalData sharedSingleton] setLocalIdleTotalFlow:100];
     [[GlobalData sharedSingleton] setLocalIdleRemainFlow:100];
+    [[GlobalData sharedSingleton] calc];
     
     g_windowsBounds = [ UIScreen mainScreen ].bounds;
     g_applicationFrame = [ UIScreen mainScreen ].applicationFrame;

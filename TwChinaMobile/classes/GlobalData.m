@@ -31,11 +31,23 @@
     _totalFlow = 0;
     _totalRemainFlow = 0;
     _totalUsedFlow = 0;
+    _internalTotalFlow = 0;
     _internalRemainFlow = 0;
+    _localTotalFlow = 0;
     _localRemainFlow = 0;
-    _local4GFlow = 0;
+    _local4GTotalFlow = 0;
+    _local4GRemainFlow = 0;
+    _localIdleTotalFlow = 0;
     _localIdleRemainFlow = 0;
     return self;
+}
+
+// 计算总量
+- (void)calc
+{
+    _totalFlow = _internalTotalFlow + _localTotalFlow + _local4GTotalFlow + _localIdleTotalFlow;
+    _totalRemainFlow = _internalRemainFlow + _localRemainFlow + _local4GRemainFlow + _localIdleRemainFlow;
+    _totalUsedFlow = _totalFlow - _totalRemainFlow;
 }
 
 - (void)testUpdateData
@@ -48,9 +60,9 @@
     _lastQueryTime = date;
     
     unsigned nCost = 100;
-    self.totalRemainFlow -= nCost;
     self.internalRemainFlow -= nCost;
-    self.totalUsedFlow = self.totalFlow - self.totalRemainFlow;
+    
+    [self calc];
 }
 
 @end

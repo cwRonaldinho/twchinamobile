@@ -43,7 +43,7 @@ CGRect g_cr;
 
 /// 颜色定义
 //#define kColor_FrenchGray [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1.0] // 浅灰色
-#define kColor_RGB(v) [UIColor colorWithRed:v/255 green:v/255 blue:v/255 alpha:1.0]
+#define kColor_RGB(v) [UIColor colorWithRed:v/255.0 green:v/255.0 blue:v/255.0 alpha:1.0]
 #define kColorBackCircle [UIColor colorWithRed:70/255.0 green:202/255.0 blue:30/255.0 alpha:1.0]    // 剩余流星弧背景颜色
 
 #endif

@@ -11,4 +11,5 @@
 @interface NSString(NSStringExt)
 - (CGSize)getSizeOfFontedString:(UIFont *)font;
 - (UILabel *)createFontedLabel:(UIFont *)font;
+- (UILabel *)createSpecLabel:(NSArray *)fonts lens:(int *)lensV colors:(NSArray *)colorsV;
 @end

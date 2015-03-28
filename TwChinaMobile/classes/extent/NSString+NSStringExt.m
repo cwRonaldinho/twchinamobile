@@ -24,6 +24,28 @@
     //[attrString addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, [attrString length])];
     [attrString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, [attrString length])];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, attrString.size.width, attrString.size.height)];
-    label.attributedText = attrString;   return label;
+    label.attributedText = attrString;
+    return label;
+}
+
+// 根据指定字体、分段、颜色创建相应 UILabel
+- (UILabel *)createSpecLabel:(NSArray *)fonts lens:(int *)lensV colors:(NSArray *)colorsV
+{
+    CGSize size = {0, 0};
+    // 计算每一部分字串的长度
+    int curPos = 0;
+    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:self];
+    for (int i = 0; i < [fonts count]; i++) {
+        int lenString = lensV[i];
+        [attr addAttribute:NSFontAttributeName value:(UIFont *)[fonts objectAtIndex:i] range:NSMakeRange(curPos, lenString)];
+        [attr addAttribute:NSForegroundColorAttributeName value:(UIColor *)[colorsV objectAtIndex:i] range:NSMakeRange(curPos, lenString)];
+        size.width += attr.size.width;
+        size.height = MAX(size.height, attr.size.height);
+        curPos +=lenString;
+    }
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    label.attributedText = attr;
+    return label;
 }
 @end

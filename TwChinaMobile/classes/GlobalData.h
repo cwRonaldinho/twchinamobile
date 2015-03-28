@@ -14,13 +14,19 @@
 @property (nonatomic, assign) unsigned int totalFlow;                   // 总流量
 @property (nonatomic, assign) unsigned int totalRemainFlow;       // 剩余总流量
 @property (nonatomic, assign) unsigned int totalUsedFlow;           // 剩余总流量
+@property (nonatomic, assign) unsigned int internalTotalFlow;       // 国内通用总流量
 @property (nonatomic, assign) unsigned int internalRemainFlow;  // 国内通用剩余流量
+@property (nonatomic, assign) unsigned int localTotalFlow;           // 本地通用总流量
 @property (nonatomic, assign) unsigned int localRemainFlow;       // 本地通用剩余流量
-@property (nonatomic, assign) unsigned int local4GFlow;               // 本地4G剩余流量
+@property (nonatomic, assign) unsigned int local4GTotalFlow;        // 本地4G总流量
+@property (nonatomic, assign) unsigned int local4GRemainFlow;    // 本地4G剩余流量
+@property (nonatomic, assign) unsigned int localIdleTotalFlow;  // 本地闲时剩余流量
 @property (nonatomic, assign) unsigned int localIdleRemainFlow;  // 本地闲时剩余流量
 @property (nonatomic, copy) NSString *lastQueryTime;                 // 最后一次查询时间
 
 + (GlobalData *)sharedSingleton;
+
+- (void)calc;
 
 // 测试用类方法
 - (void)testUpdateData;

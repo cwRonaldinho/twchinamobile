@@ -210,6 +210,9 @@ static LeveyTabBarController *leveyTabBarController;
     [btn addTarget:self action:@selector(navCommButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *rightItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = rightItem;
+    
+    // __TW__TEST 测试 启动时直接跳到明细页面
+    [self switchToCategoryDetails];
 }
 
 - (void)viewDidUnload
@@ -395,7 +398,7 @@ static LeveyTabBarController *leveyTabBarController;
 - (UIView *)pageAtIndex:(NSInteger)index
 {
     UILabel *l = [[UILabel alloc] initWithFrame:self.view.bounds];
-    l.text = [NSString stringWithFormat:@"%d",index];
+    l.text = [NSString stringWithFormat:@"%d", (int)index];
     l.font = [UIFont systemFontOfSize:72];
     l.backgroundColor = [UIColor clearColor];
     return l;

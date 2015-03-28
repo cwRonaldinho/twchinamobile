@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface CategoryDetailViewController : BaseViewController
-
+@interface CategoryDetailViewController : BaseViewController<UIScrollViewDelegate>
+@property(nonatomic, strong) UIScrollView *scrollView; 
 @end

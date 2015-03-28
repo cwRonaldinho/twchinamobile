@@ -189,13 +189,13 @@
 
         
         // 测试按钮，测试切换视图功能
-        UIButton *btnTestSwitchVC = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 160, 30)];
-        [btnTestSwitchVC addTarget:self action:@selector(testSwitchVC:) forControlEvents:UIControlEventTouchDown];
-        btnTestSwitchVC.titleLabel.font = [UIFont systemFontOfSize:14];
-        [btnTestSwitchVC setTitle:@"流量明细" forState:UIControlStateNormal];
-        [btnTestSwitchVC setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        btnTestSwitchVC.backgroundColor = [UIColor clearColor];
-        [_mainView addSubview:btnTestSwitchVC];
+//        UIButton *btnTestSwitchVC = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 160, 30)];
+//        [btnTestSwitchVC addTarget:self action:@selector(testSwitchVC:) forControlEvents:UIControlEventTouchDown];
+//        btnTestSwitchVC.titleLabel.font = [UIFont systemFontOfSize:14];
+//        [btnTestSwitchVC setTitle:@"流量明细" forState:UIControlStateNormal];
+//        [btnTestSwitchVC setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+//        btnTestSwitchVC.backgroundColor = [UIColor clearColor];
+//        [_mainView addSubview:btnTestSwitchVC];
         
         /// 各类流量信息
         // 背景
@@ -367,7 +367,16 @@
             [self addSubview:btn];
         }
     }
+    
+    // 添加点击事件
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    [self addGestureRecognizer:gesture];
     return self;
+}
+
+- (void)tap:(id)sender
+{
+    [_parent switchToCategoryDetails];
 }
 
 // 重新加载相关控件的数据
