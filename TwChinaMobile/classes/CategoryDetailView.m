@@ -70,7 +70,11 @@ static const CGSize progressViewSize = { 300.0f, 20.0f };
     
     // 描述
     UILabel *despTitle = [_desp createFontedLabel:[UIFont systemFontOfSize:kFontSizeDesp]];
-    despTitle.center = CGPointMake(self.bounds.size.width/2, bottomY + largeDistanceVertical + despTitle.frame.size.height/2);
+    despTitle.frame = CGRectMake(kInsetHorizontalAmount, bottomY + largeDistanceVertical, g_screenWidth - kInsetHorizontalAmount * 2, despTitle.frame.size.height * 2);
+    despTitle.lineBreakMode = NSLineBreakByWordWrapping;
+    despTitle.numberOfLines = 0;
+    despTitle.textAlignment = NSTextAlignmentCenter;
+    //despTitle.center = CGPointMake(self.bounds.size.width/2, bottomY + largeDistanceVertical + despTitle.frame.size.height/2);
     [self addSubview:despTitle];
     bottomY = [despTitle getBottomY];
     
@@ -146,7 +150,13 @@ static const CGSize progressViewSize = { 300.0f, 20.0f };
 - (void)startAnimation
 {
     THProgressView *progressView = (THProgressView *)[self viewWithTag:kTagProgress];
-    [progressView setProgress:(_remain*1.0/_total) animated:YES];
+    
+    float ration = 0.0f;
+    if (_total != 0) {
+        ration = _remain*1.0/_total;
+    }
+    
+    [progressView setProgress:ration animated:YES];
     
     [progressView setProgressTintColor:kColorBackCircle];
     [progressView setBorderWidth:0.5];

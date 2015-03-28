@@ -13,7 +13,8 @@
 #import "GlobalData.h"
 
 @interface CategoryDetailViewController ()
-
+@property (nonatomic) int curPage;
+@property (nonatomic, strong) UIPageControl *pageControl;
 @end
 
 @implementation CategoryDetailViewController
@@ -59,11 +60,47 @@
     _scrollView.delegate = self;
 
     [self.view addSubview:_scrollView];
+    
+    CGRect rect = self.view.bounds;
+    rect.origin.y = rect.size.height - 30 - kStatusBarHeight - kNavBarHeight;
+    rect.size.height = 30;
+    _pageControl = [[UIPageControl alloc] initWithFrame:rect];
+    _pageControl.userInteractionEnabled = YES;
+    _pageControl.numberOfPages = 4;
+    _pageControl.currentPage = 0;
+    _pageControl.pageIndicatorTintColor = kColor_RGB(192);
+    _pageControl.currentPageIndicatorTintColor = kColorBackCircle;
+    //_pageControl.backgroundColor = [UIColor redColor];
+    //_pageControl.delegate = self;
+    [_pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+    
+    [self.view addSubview:_pageControl];
+    
+    self.view.userInteractionEnabled = YES;
+    
+    _curPage = 0;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    
+    int page = _scrollView.contentOffset.x / g_screenWidth; // 通过滚动的偏移量来判断目前页面所对应的小白点
+    _pageControl.currentPage = page; // pagecontroll响应值的变化
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    //int page = _scrollView.contentOffset.x / g_screenWidth; // 通过滚动的偏移量来判断目前页面所对应的小白点
+    //_pageControl.currentPage = page; // pagecontroll响应值的变化
+}
+
+// pagecontroll的委托方法
+- (void)changePage:(id)sender {
+    int page = (int)_pageControl.currentPage; // 获取当前pagecontroll的值
+    [_scrollView setContentOffset:CGPointMake(g_screenWidth * page, 0)]; // 根据pagecontroll的值来改变scrollview的滚动位置，以此切换到指定的页面
 }
 
 /*
