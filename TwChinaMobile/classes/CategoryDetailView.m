@@ -138,7 +138,7 @@ static const CGSize progressViewSize = { 300.0f, 20.0f };
     
     // 查询时间
     UILabel *labelQueryTime = [_queryTime createFontedLabel:[UIFont systemFontOfSize:kFontSizeQueryTime]];
-    labelQueryTime.center = CGPointMake(self.bounds.size.width/2, bottomY + largeDistanceVertical + labelQueryTime.frame.size.height/2);
+    labelQueryTime.center = CGPointMake(self.bounds.size.width/2, bottomY + smallDistanceVertical + labelQueryTime.frame.size.height/2);
     [self addSubview:labelQueryTime];
     bottomY = [labelQueryTime getBottomY];
     

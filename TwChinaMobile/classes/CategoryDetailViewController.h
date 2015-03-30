@@ -10,5 +10,6 @@
 #import "BaseViewController.h"
 
 @interface CategoryDetailViewController : BaseViewController<UIScrollViewDelegate>
-@property(nonatomic, strong) UIScrollView *scrollView; 
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic) int curPage;
 @end

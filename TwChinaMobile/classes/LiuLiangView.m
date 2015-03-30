@@ -27,6 +27,7 @@
 #define kTagLabelRationRemain         1110
 #define kTagLabelTotalRemainAmount 1111
 #define kTagImageViewTotalRemain                1112
+#define kTagBtnDetailsBase                  1200
 
 // 流量界面相关定义
 #define kInsetMainViewHV 8.0f             // 主视图区到两边及上面元素的距离
@@ -241,6 +242,12 @@
         labelInternalGeneralValue.tag = kTagLabelInternalFlow;
         [_mainView addSubview:labelInternalGeneralValue];
         
+        // 1.5.3 流量详细按钮1
+        UIButton *btnDetails = [[UIButton alloc] initWithFrame:CGRectMake(0, _mainView.frame.size.height - kHeightRemainFlowCell * 2, _mainView.frame.size.width / 2, kHeightRemainFlowCell)];
+        btnDetails.tag = kTagBtnDetailsBase + 0;
+        [btnDetails addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchDown];
+        [_mainView addSubview:btnDetails];
+        
         // 1.6
         // 1.6.1 "本地通用流量"key
         UILabel *labelLocalGeneral = [[UILabel alloc] init];
@@ -260,6 +267,12 @@
         labelLocalGeneralValue.frame = CGRectMake(_mainView.frame.size.width - kLabelLeftFlowRightInset - strKey.size.width, _mainView.frame.size.height - kHeightRemainFlowCell - kLabelLeftFlowVerticalInset  - heightValue - kLabelLeftFlowVerticalInset, strKey.size.width, strKey.size.height);
         labelLocalGeneralValue.tag = kTagLabelLocalFlow;
         [_mainView addSubview:labelLocalGeneralValue];
+        
+        // 1.6.3 流量详细信息2
+        btnDetails = [[UIButton alloc] initWithFrame:CGRectMake(_mainView.frame.size.width/2, _mainView.frame.size.height - kHeightRemainFlowCell * 2, _mainView.frame.size.width / 2, kHeightRemainFlowCell)];
+        btnDetails.tag = kTagBtnDetailsBase + 1;
+        [btnDetails addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchDown];
+        [_mainView addSubview:btnDetails];
         
         // 1.7
         // 1.7.1 "本地4G流量"key
@@ -281,6 +294,12 @@
         labelLocal4GValue.tag = kTagLabelLocal4G;
         [_mainView addSubview:labelLocal4GValue];
         
+        // 1.7.3 流量详细信息3
+        btnDetails = [[UIButton alloc] initWithFrame:CGRectMake(0, _mainView.frame.size.height - kHeightRemainFlowCell, _mainView.frame.size.width / 2, kHeightRemainFlowCell)];
+        btnDetails.tag = kTagBtnDetailsBase + 2;
+        [btnDetails addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchDown];
+        [_mainView addSubview:btnDetails];
+        
         // 1.8
         // 1.8.1 "本地闲时流量"key
         UILabel *labelLocalIdle = [[UILabel alloc] init];
@@ -300,6 +319,12 @@
         labelLocalIdleValue.frame = CGRectMake(_mainView.frame.size.width - kLabelLeftFlowRightInset - strKey.size.width, _mainView.frame.size.height  - kLabelLeftFlowVerticalInset  - heightValue, strKey.size.width, strKey.size.height);
         labelLocalIdleValue.tag = kTagLabelLocalIdle;
         [_mainView addSubview:labelLocalIdleValue];
+        
+        // 1.8.3 流量详细信息3
+        btnDetails = [[UIButton alloc] initWithFrame:CGRectMake(_mainView.frame.size.width/2, _mainView.frame.size.height - kHeightRemainFlowCell, _mainView.frame.size.width / 2, kHeightRemainFlowCell)];
+        btnDetails.tag = kTagBtnDetailsBase + 3;
+        [btnDetails addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchDown];
+        [_mainView addSubview:btnDetails];
         
         // 横向分隔线1
         UIImageView *lineY1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"liney.png"]];
@@ -369,14 +394,17 @@
     }
     
     // 添加点击事件
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-    [self addGestureRecognizer:gesture];
+    //UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    //[self addGestureRecognizer:gesture];
     return self;
 }
 
 - (void)tap:(id)sender
 {
-    [_parent switchToCategoryDetails];
+    UIButton *btn = (UIButton *)sender;
+    if (btn) {
+        [_parent switchToCategoryDetails:(int)btn.tag - kTagBtnDetailsBase];
+    }
 }
 
 // 重新加载相关控件的数据
@@ -454,7 +482,7 @@
 
 - (void)testSwitchVC:(id)sender
 {
-    [_parent switchToCategoryDetails];
+    [_parent switchToCategoryDetails:0];
 }
 
 // 开始剩余流量信息动画展示

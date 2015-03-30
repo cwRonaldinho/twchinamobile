@@ -210,9 +210,6 @@ static LeveyTabBarController *leveyTabBarController;
     [btn addTarget:self action:@selector(navCommButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *rightItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = rightItem;
-    
-    // __TW__TEST 测试 启动时直接跳到明细页面
-    [self switchToCategoryDetails];
 }
 
 - (void)viewDidUnload
@@ -226,6 +223,11 @@ static LeveyTabBarController *leveyTabBarController;
 - (void)dealloc 
 {
     _tabBar.delegate = nil;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
 }
 
 #pragma mark - instant methods
@@ -370,24 +372,23 @@ static LeveyTabBarController *leveyTabBarController;
 // 自定义导航条的协议实现
 - (void)navCommButtonClicked:(id)sender
 {
-    // TODO: 点击通话按钮处理
-    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"tip" message:@"疯狂开发中..." delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"yes", nil];
-    //[alert show];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"tip" message:@"疯狂开发中..." delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"yes", nil];
+    [alert show];
     
     // 测试刷新主视图内容
     //NSString *upadteTime = [[GlobalData sharedSingleton] lastQueryTime];
-    LiuLiangView *view1 = (LiuLiangView *)[_containerView viewWithTag:kTagLiuliangView];
-    [view1 reloadData];
+    //LiuLiangView *view1 = (LiuLiangView *)[_containerView viewWithTag:kTagLiuliangView];
+    //[view1 reloadData];
 //    dispatch_async(dispatch_get_main_queue(), ^{
 //        [_containerView setNeedsDisplay];
 //    });
     //[self.view setNeedsDisplay];
         
         // 测试视图切换
-//        SwapViewTestVC2 *loginController=[[SwapViewTestVC2 alloc]init];
-//        loginController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-//        //调用此方法显示模态窗口
-//        [self presentViewController:loginController animated:YES completion:nil];
+        CategoryDetailViewController *loginController=[[CategoryDetailViewController alloc]init];
+        loginController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        //调用此方法显示模态窗口
+        [self presentViewController:loginController animated:YES completion:nil];
 }
 
 - (NSInteger)numberOfPages
@@ -405,10 +406,11 @@ static LeveyTabBarController *leveyTabBarController;
 }
 
 #pragma switch view controllers
-- (void)switchToCategoryDetails
+- (void)switchToCategoryDetails:(int)index
 {
     //NSLog(@"switch to category details");
     CategoryDetailViewController *cagegoryDetailVC = [[CategoryDetailViewController alloc] init];
+    [cagegoryDetailVC setCurPage:index];
     [self.navigationController pushViewController:cagegoryDetailVC animated:YES];
     
     // 修改导航条信息

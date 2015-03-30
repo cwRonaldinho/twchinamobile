@@ -12,22 +12,38 @@
 #import "constant.h"
 #import "GlobalData.h"
 
+#define kFontSizeTitle 22
+
 @interface CategoryDetailViewController ()
-@property (nonatomic) int curPage;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @end
 
 @implementation CategoryDetailViewController
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        _curPage = 0;
+        [super setIsBackButton:YES];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"分类明细";
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                             [UIColor whiteColor], NSForegroundColorAttributeName,
+                             [UIFont fontWithName:@"HelveticaNeue-Bold" size:kFontSizeTitle], NSFontAttributeName, 
+                             nil]];
     
     self.view.backgroundColor = [UIColor grayColor];
     
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, g_screenWidth, g_screenHeight - kTabBarHeight - kStatusBarHeight)];
     _scrollView.contentSize = CGSizeMake(g_screenWidth * 4, g_screenHeight - kTabBarHeight - kStatusBarHeight);
-    _scrollView.contentOffset = CGPointMake(0, 0);
+    _scrollView.contentOffset = CGPointMake(g_screenWidth * _curPage, 0);
     
     NSArray *arrayTitle = [NSArray arrayWithObjects:@"国内通用流量", @"本地通用流量", @"本地4G流量", @"本地闲时流量", nil];
     NSArray *arrayMainImageName = [NSArray arrayWithObjects:@"flowquerytypedetailbigpicchn.png", @"flowquerytypedetailbigpiclocal.png", @"flowquerytypedetailbigpic4g.png", @"flowquerytypedetailbigpicfree.png", nil];
@@ -67,7 +83,7 @@
     _pageControl = [[UIPageControl alloc] initWithFrame:rect];
     _pageControl.userInteractionEnabled = YES;
     _pageControl.numberOfPages = 4;
-    _pageControl.currentPage = 0;
+    _pageControl.currentPage = _curPage;
     _pageControl.pageIndicatorTintColor = kColor_RGB(192);
     _pageControl.currentPageIndicatorTintColor = kColorBackCircle;
     //_pageControl.backgroundColor = [UIColor redColor];
@@ -77,8 +93,6 @@
     [self.view addSubview:_pageControl];
     
     self.view.userInteractionEnabled = YES;
-    
-    _curPage = 0;
 }
 
 - (void)didReceiveMemoryWarning {

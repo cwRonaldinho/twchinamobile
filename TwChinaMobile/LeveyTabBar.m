@@ -9,6 +9,7 @@
 
 #import "LeveyTabBar.h"
 #include "UIImage+UIImageExt.h"
+#import "common_util.h"
 
 @implementation LeveyTabBar
 @synthesize backgroundView = _backgroundView;
@@ -32,7 +33,8 @@
 			btn = [UIButton buttonWithType:UIButtonTypeCustom];
 			btn.showsTouchWhenHighlighted = YES;
 			btn.tag = i;
-			btn.frame = CGRectMake(width * i, 0, width, frame.size.height);
+			btn.frame = CGRectMake(width * i, 0, width+1, frame.size.height);   // tabbar中4个按钮可能存在间隙，用宽度加1的方式解决
+            //TRACE_RECT(btn.frame);
             [btn setImage:[[imageArray objectAtIndex:i] objectForKey:@"Default"] forState:UIControlStateNormal];
 			[btn setImage:[[imageArray objectAtIndex:i] objectForKey:@"Highlighted"] forState:UIControlStateHighlighted];
 			[btn setImage:[[imageArray objectAtIndex:i] objectForKey:@"Seleted"] forState:UIControlStateSelected];
@@ -122,7 +124,6 @@
 
 @implementation UIButton (UIButtonImageWithLable)
 
-// TODO: 细节待调整
 - (void) setImage:(UIImage *)image withTitle:(NSString *)title forState:(UIControlState)stateType {
     //UIEdgeInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right)
     

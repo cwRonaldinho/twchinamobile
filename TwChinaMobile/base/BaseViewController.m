@@ -32,16 +32,12 @@
    
     [self.navigationController.navigationBar
      setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                        [UIColor  orangeColor], UITextAttributeTextColor,
+                                                        [UIColor blackColor], NSForegroundColorAttributeName,
                                                                      nil]];
     if (_isBackButton == YES) {
         //初始化返回按钮
         [self _initBackItem];
     }
-    
-//    MainTabBarController * mainTabBar  = [MainTabBarController sharaMainTabBar];
-//    mainTabBar.hiddenTabBar = self.hiddenTabBar;
-    
 }
 
 //初始化返回按钮
@@ -56,24 +52,14 @@
     //创建导航按钮
     UIBarButtonItem *leftBarButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
-    
-    
     //设置到导航控制器上去显示
-    self.navigationItem.leftBarButtonItem =             leftBarButtonItem1;
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem1;
 }
 
 #pragma mark - Back Action
 - (void)backAction:(UIButton *)button
 {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-
-
-- (BOOL)shouldAutorotate
-{
-    NSLog(@"让不让我旋转?");
-    return NO;
 }
 
 @end
