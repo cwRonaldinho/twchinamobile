@@ -30,7 +30,7 @@
     date = [formatter stringFromDate:[NSDate date]];
     [[GlobalData sharedSingleton] setLastQueryTime:date];
     [[GlobalData sharedSingleton] setInternalTotalFlow:1900];
-    [[GlobalData sharedSingleton] setInternalRemainFlow:200];
+    [[GlobalData sharedSingleton] setInternalRemainFlow:1700];
     [[GlobalData sharedSingleton] setLocalIdleTotalFlow:100];
     [[GlobalData sharedSingleton] setLocalIdleRemainFlow:100];
     [[GlobalData sharedSingleton] calc];

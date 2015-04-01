@@ -245,7 +245,7 @@
         // 1.5.3 流量详细按钮1
         UIButton *btnDetails = [[UIButton alloc] initWithFrame:CGRectMake(0, _mainView.frame.size.height - kHeightRemainFlowCell * 2, _mainView.frame.size.width / 2, kHeightRemainFlowCell)];
         btnDetails.tag = kTagBtnDetailsBase + 0;
-        [btnDetails addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchDown];
+        [btnDetails addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchUpInside];
         [_mainView addSubview:btnDetails];
         
         // 1.6
@@ -271,7 +271,7 @@
         // 1.6.3 流量详细信息2
         btnDetails = [[UIButton alloc] initWithFrame:CGRectMake(_mainView.frame.size.width/2, _mainView.frame.size.height - kHeightRemainFlowCell * 2, _mainView.frame.size.width / 2, kHeightRemainFlowCell)];
         btnDetails.tag = kTagBtnDetailsBase + 1;
-        [btnDetails addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchDown];
+        [btnDetails addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchUpInside];
         [_mainView addSubview:btnDetails];
         
         // 1.7
@@ -297,7 +297,7 @@
         // 1.7.3 流量详细信息3
         btnDetails = [[UIButton alloc] initWithFrame:CGRectMake(0, _mainView.frame.size.height - kHeightRemainFlowCell, _mainView.frame.size.width / 2, kHeightRemainFlowCell)];
         btnDetails.tag = kTagBtnDetailsBase + 2;
-        [btnDetails addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchDown];
+        [btnDetails addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchUpInside];
         [_mainView addSubview:btnDetails];
         
         // 1.8
@@ -323,7 +323,7 @@
         // 1.8.3 流量详细信息3
         btnDetails = [[UIButton alloc] initWithFrame:CGRectMake(_mainView.frame.size.width/2, _mainView.frame.size.height - kHeightRemainFlowCell, _mainView.frame.size.width / 2, kHeightRemainFlowCell)];
         btnDetails.tag = kTagBtnDetailsBase + 3;
-        [btnDetails addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchDown];
+        [btnDetails addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchUpInside];
         [_mainView addSubview:btnDetails];
         
         // 横向分隔线1
@@ -411,7 +411,7 @@
 - (void)reloadData
 {
     // 模拟更新数据
-    [[GlobalData sharedSingleton] testUpdateData];
+    //[[GlobalData sharedSingleton] testUpdateData];
     
     // 查询时间(只需要修改值，不需要重新设置属性)
     UILabel *labelQueryTime = (UILabel *)[_mainView viewWithTag:kTagLabelQueryTime];

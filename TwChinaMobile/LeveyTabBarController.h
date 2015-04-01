@@ -10,11 +10,12 @@
 #import <UIKit/UIKit.h>
 #import "LeveyTabBar.h"
 #import "CustomNavBar.h"
+#import "EGORefreshTableHeaderView.h"
 
 @class UITabBarController;
 @protocol LeveyTabBarControllerDelegate;
 
-@interface LeveyTabBarController : UIViewController <LeveyTabBarDelegate, UIScrollViewDelegate>
+@interface LeveyTabBarController : UIViewController <LeveyTabBarDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate>
 {
 	LeveyTabBar *_tabBar;
 	UIView      *_containerView;
@@ -27,7 +28,11 @@
 	BOOL _tabBarHidden;
     
     NSInteger animateDriect;
+    
+    BOOL _reloading;
 }
+
+@property(nonatomic, strong) EGORefreshTableHeaderView *refreshHeaderView;
 
 @property(nonatomic, strong) UIScrollView *scrollView;  // 所有一级页面均放在该滑动视图之中
 
@@ -63,6 +68,10 @@
 
 // 切换视图操作
 - (void)switchToCategoryDetails:(int)index;
+
+// 下拉刷新相关操作
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
 
 @end
 

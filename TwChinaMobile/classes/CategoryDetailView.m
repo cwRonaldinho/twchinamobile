@@ -36,8 +36,6 @@
 
 #define kTagProgress                      2000
 
-static const CGSize progressViewSize = { 300.0f, 20.0f };
-
 @implementation CategoryDetailView
 
 - (id)initWithFrame:(CGRect)frame
@@ -84,7 +82,6 @@ static const CGSize progressViewSize = { 300.0f, 20.0f };
     float xStartATImage = self.bounds.size.width/2.0 - (kInsetHorizontalATImage * (nATCount - 1) + kWidthAreaTimeImage*nATCount)/2.0;
     for (int i = 0; i < nATCount; i++) {
         float xATImage = xStartATImage + (kWidthAreaTimeImage + kInsetHorizontalATImage) * i;
-        NSString *tmp = (NSString *)[_arrayDetailImageName objectAtIndex:i];
         UIImageView *imageViewAT = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[_arrayDetailImageName objectAtIndex:i]]];
         imageViewAT.frame = CGRectMake(xATImage, yATImage, kWidthAreaTimeImage, kHeightAreaTimeImage);
         [self addSubview:imageViewAT];

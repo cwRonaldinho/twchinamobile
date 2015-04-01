@@ -59,7 +59,7 @@
     date = [formatter stringFromDate:[NSDate date]];
     _lastQueryTime = date;
     
-    unsigned nCost = 100;
+    unsigned nCost = 10;
     self.internalRemainFlow -= nCost;
     
     [self calc];

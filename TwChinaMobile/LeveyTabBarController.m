@@ -100,7 +100,7 @@ static LeveyTabBarController *leveyTabBarController;
         [_scrollView addSubview:view4];
         
         //高度上与 ScrollView 相同，只在横向扩展，所以只要在横向上滚动
-        _scrollView.contentSize = CGSizeMake(1280, g_screenHeight - kTabBarHeight*2 - kStatusBarHeight);
+        _scrollView.contentSize = CGSizeMake(1280, (g_screenHeight - kTabBarHeight*2 - kStatusBarHeight) * 2);
         
         //用它指定 ScrollView 中内容的当前位置，即相对于 ScrollView 的左上顶点的偏移
         _scrollView.contentOffset = CGPointMake(0, 0);
@@ -115,6 +115,11 @@ static LeveyTabBarController *leveyTabBarController;
         //_scrollView.bounces = NO;
         
         [_containerView addSubview:_scrollView];
+        
+        // 添加下拉刷新功能
+        _refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0, 0 - _scrollView.bounds.size.height, _scrollView.bounds.size.width, _scrollView.bounds.size.height)];
+        _refreshHeaderView.delegate = self;
+        [_scrollView addSubview:_refreshHeaderView];
 		
         leveyTabBarController = self;
 	}
@@ -230,7 +235,7 @@ static LeveyTabBarController *leveyTabBarController;
     return NO;
 }
 
-#pragma mark - instant methods
+#pragma mark - tabbar operation
 
 - (LeveyTabBar *)tabBar
 {
@@ -415,6 +420,54 @@ static LeveyTabBarController *leveyTabBarController;
     
     // 修改导航条信息
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+}
+
+#pragma mark -
+#pragma mark Data Source Loading / Reloading Method
+- (void)reloadTableViewDataSource{
+    //  should be calling your tableviews data source model to reload
+    //  put here just for demo
+    _reloading = YES;
+    
+    // 模拟更新数据
+    [[GlobalData sharedSingleton] testUpdateData];
+    
+    // 用http方式重新加载数据
+}
+
+- (void)doneLoadingTableViewData{
+    //  model should call this when its done loading
+    _reloading = NO;
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_scrollView];
+    
+    LiuLiangView *view1 = (LiuLiangView *)[_containerView viewWithTag:kTagLiuliangView];
+    [view1 reloadData];
+}
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+#pragma mark -
+#pragma mark EGORefreshTableHeaderDelegate Methods
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
+    // 加载数据操作，待数据加载成功或超时后通知EGO
+    [self reloadTableViewDataSource];
+    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:.5];
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view{
+    return _reloading; // should return if data source model is reloading
+}
+
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view{
+    return [NSDate date]; // should return date data source was last changed
 }
 
 @end
