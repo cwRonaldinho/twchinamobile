@@ -39,6 +39,17 @@
     _local4GRemainFlow = 0;
     _localIdleTotalFlow = 0;
     _localIdleRemainFlow = 0;
+    
+    _msgCount = 60;
+    _remainMsgCount = 60;
+    
+    _voiceCount = 0;
+    _remainVoiceCount = 0;
+    
+    _mmsgCount = 0;
+    _remainMmsgCount = 0;
+    
+    _subscribedPackeges = [NSMutableArray arrayWithObjects:@"动感网聊套餐11元网聊套餐", @"新30元数据流量可选包", nil];
     return self;
 }
 
@@ -61,6 +72,8 @@
     
     unsigned nCost = 10;
     self.internalRemainFlow -= nCost;
+    
+    _subscribedPackeges = (NSMutableArray *)[_subscribedPackeges arrayByAddingObject:@"test business"];
     
     [self calc];
 }

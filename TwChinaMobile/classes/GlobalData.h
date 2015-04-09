@@ -23,6 +23,14 @@
 @property (nonatomic, assign) unsigned int localIdleTotalFlow;  // 本地闲时剩余流量
 @property (nonatomic, assign) unsigned int localIdleRemainFlow;  // 本地闲时剩余流量
 @property (nonatomic, copy) NSString *lastQueryTime;                 // 最后一次查询时间
+@property (nonatomic, assign) unsigned int msgCount;                    // 短信
+@property (nonatomic, assign) unsigned int remainMsgCount;
+@property (nonatomic, assign) unsigned int voiceCount;
+@property (nonatomic, assign) unsigned int remainVoiceCount;
+@property (nonatomic, assign) unsigned int mmsgCount;
+@property (nonatomic, assign) unsigned int remainMmsgCount;
+@property (nonatomic, copy) NSMutableArray *subscribedPackeges;            // 已订阅套餐名
+
 
 + (GlobalData *)sharedSingleton;
 

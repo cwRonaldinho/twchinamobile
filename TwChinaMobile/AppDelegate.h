@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class LeveyTabBarController;
+@class MainTabBarController;
 
 //@interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 @interface AppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, strong)  LeveyTabBarController *mainViewController;
+@property (nonatomic, strong)  MainTabBarController *mainViewController;
 
 @end

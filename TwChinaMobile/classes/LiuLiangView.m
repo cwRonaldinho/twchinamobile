@@ -9,7 +9,7 @@
 #import "LiuLiangView.h"
 #import "constant.h"
 #import "GlobalData.h"
-#import "LeveyTabBarController.h"
+#import "MainTabBarController.h"
 #import "NSString+NSStringExt.h"
 #import "BackCircleView.h"
 
@@ -63,7 +63,7 @@
 
 @implementation LiuLiangView
 
-- (id)initWithFrame:(CGRect)frame parentVC:(LeveyTabBarController *)parent
+- (instancetype)initWithFrame:(CGRect)frame parentVC:(MainTabBarController *)parent
 {
     self = [super initWithFrame:frame];
     if (self) {

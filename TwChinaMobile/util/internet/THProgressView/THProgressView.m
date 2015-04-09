@@ -18,7 +18,7 @@
 @property (nonatomic, strong) UIColor* borderTintColor;
 @property (nonatomic) CGFloat progress;
 @property (nonatomic, assign) BOOL bBorder;                     // 是否有边框
-@property (nonatomic, assign) float borderWidth;                // 边框宽度
+@property (nonatomic, assign) float fBorderWidth;                // 边框宽度
 @end
 
 @implementation THProgressLayer
@@ -34,14 +34,14 @@
 - (void)drawInContext:(CGContextRef)context
 {
     CGRect frame;
-    CGRect rect = CGRectInset(self.bounds, self.borderWidth, self.borderWidth);
+    CGRect rect = CGRectInset(self.bounds, self.fBorderWidth, self.fBorderWidth);
     
     // 边框
     if (self.bBorder) {
         CGFloat radius = CGRectGetHeight(rect) / 2.0f;
         frame = rect;
         NSLog(@"draw: frame(%f,%f,%f,%f), radius=%f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height, radius);
-        CGContextSetLineWidth(context, self.borderWidth);
+        CGContextSetLineWidth(context, self.fBorderWidth);
         CGContextSetStrokeColorWithColor(context, self.borderTintColor.CGColor);
         [self drawRectangleInContext:context inRect:rect withRadius:radius];
         CGContextStrokePath(context);
@@ -52,7 +52,7 @@
     
     // 背景
     CGContextSetFillColorWithColor(context, self.backgroundTintColor.CGColor);
-    progressRect = CGRectInset(rect, 2 * self.borderWidth, 2 * self.borderWidth);
+    progressRect = CGRectInset(rect, 2 * self.fBorderWidth, 2 * self.fBorderWidth);
     progressRadius = CGRectGetHeight(progressRect) / 2.0f;
     progressRect.size.width = fmaxf(progressRect.size.width, 2.0f * progressRadius);
     frame = progressRect;
@@ -62,7 +62,7 @@
     
     // 进度
     CGContextSetFillColorWithColor(context, self.progressTintColor.CGColor);
-    progressRect = CGRectInset(rect, 2 * self.borderWidth, 2 * self.borderWidth);
+    progressRect = CGRectInset(rect, 2 * self.fBorderWidth, 2 * self.fBorderWidth);
     progressRadius = CGRectGetHeight(progressRect) / 2.0f;
     progressRect.size.width = fmaxf(self.progress * progressRect.size.width, 2.0f * progressRadius);
     frame = progressRect;
@@ -217,7 +217,7 @@
 
 - (void)setBorderWidth:(float)borderWidth
 {
-    self.progressLayer.borderWidth = borderWidth;
+    self.progressLayer.fBorderWidth = borderWidth;
     [self.progressLayer setNeedsDisplay];
 }
 

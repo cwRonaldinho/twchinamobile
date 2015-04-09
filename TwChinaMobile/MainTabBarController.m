@@ -7,23 +7,24 @@
 //
 //
 
-#import "LeveyTabBarController.h"
+#import "MainTabBarController.h"
 #import "LeveyTabBar.h"
 #import "CustomNavBar.h"
 #import "constant.h"
 #import "GlobalData.h"
 #import "LiuLiangView.h"
+#import "WodeView.h"
 #import "CategoryDetailViewController.h"
 
 #define kTagLiuliangView 2000
 
-static LeveyTabBarController *leveyTabBarController;
+static MainTabBarController *mainTabBarController;
 
 @implementation UIViewController (LeveyTabBarControllerSupport)
 
-- (LeveyTabBarController *)leveyTabBarController
++ (MainTabBarController *)mainTabBarController
 {
-	return leveyTabBarController;
+	return mainTabBarController;
 }
 
 @end
@@ -32,7 +33,7 @@ static LeveyTabBarController *leveyTabBarController;
 //- (void)displayViewAtIndex;
 //@end
 
-@implementation LeveyTabBarController
+@implementation MainTabBarController
 @synthesize delegate = _delegate;
 @synthesize selectedViewController = _selectedViewController;
 @synthesize viewControllers = _viewControllers;
@@ -79,31 +80,30 @@ static LeveyTabBarController *leveyTabBarController;
         // 添加滚动主视图
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, g_screenWidth, g_screenHeight - kTabBarHeight*2 - kStatusBarHeight)];
         //向 ScrollView 中加入第一个 View，View 的宽度 200 加上两边的空隙 5 等于 ScrollView 的宽度
-        UIView *view1 = [[LiuLiangView alloc] initWithFrame:CGRectMake(0,0,320,g_screenHeight - kTabBarHeight*2 - kStatusBarHeight) parentVC:self];
+        UIView *view1 = [[LiuLiangView alloc] initWithFrame:CGRectMake(0,0,g_screenWidth,g_screenHeight - kTabBarHeight*2 - kStatusBarHeight) parentVC:self];
         //view1.backgroundColor = [UIColor redColor];
         view1.tag = kTagLiuliangView;
         [_scrollView addSubview:view1];
         
         //第二个 View，它的宽度加上两边的空隙 5 等于 ScrollView 的宽度，两个 View 间有 10 的间距
-        UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(325,5,310,g_screenHeight - kTabBarHeight*2 - kStatusBarHeight - 10)];
-        view2.backgroundColor = [UIColor greenColor];
+        UIView *view2 = [[WodeView alloc] initWithFrame:CGRectMake(g_screenWidth,0,g_screenWidth,g_screenHeight - kTabBarHeight*2 - kStatusBarHeight) parentVC:self];
         [_scrollView addSubview:view2];
         
         //第三个 View
-        UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(645,5,310,g_screenHeight - kTabBarHeight*2 - kStatusBarHeight - 10)];
+        UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(g_screenWidth*2,0,g_screenWidth,g_screenHeight - kTabBarHeight*2 - kStatusBarHeight)];
         view3.backgroundColor = [UIColor blueColor];
         [_scrollView addSubview:view3];
         
         //第4个 View
-        UIView *view4 = [[UIView alloc] initWithFrame:CGRectMake(965,5,310,g_screenHeight - kTabBarHeight*2 - kStatusBarHeight - 10)];
+        UIView *view4 = [[UIView alloc] initWithFrame:CGRectMake(g_screenWidth*3,0,g_screenWidth,g_screenHeight - kTabBarHeight*2 - kStatusBarHeight)];
         view4.backgroundColor = [UIColor grayColor];
         [_scrollView addSubview:view4];
         
         //高度上与 ScrollView 相同，只在横向扩展，所以只要在横向上滚动
-        _scrollView.contentSize = CGSizeMake(1280, (g_screenHeight - kTabBarHeight*2 - kStatusBarHeight) * 2);
+        _scrollView.contentSize = CGSizeMake(g_screenWidth*4, (g_screenHeight - kTabBarHeight*2 - kStatusBarHeight) * 2);
         
         //用它指定 ScrollView 中内容的当前位置，即相对于 ScrollView 的左上顶点的偏移
-        _scrollView.contentOffset = CGPointMake(0, 0);
+        _scrollView.contentOffset = CGPointMake(g_screenWidth, 0);
         
         //按页滚动，总是一次一个宽度，或一个高度单位的滚动
         _scrollView.pagingEnabled = YES;
@@ -121,7 +121,7 @@ static LeveyTabBarController *leveyTabBarController;
         _refreshHeaderView.delegate = self;
         [_scrollView addSubview:_refreshHeaderView];
 		
-        leveyTabBarController = self;
+        mainTabBarController = self;
 	}
 	return self;
 }
@@ -148,7 +148,7 @@ static LeveyTabBarController *leveyTabBarController;
 		_tabBar = [[LeveyTabBar alloc] initWithFrame:CGRectMake(0, _containerView.frame.size.height - kTabBarHeight, g_applicationFrame.size.width, kTabBarHeight) buttonImages:arr];
 		_tabBar.delegate = self;
 		
-        leveyTabBarController = self;
+        mainTabBarController = self;
         animateDriect = 0;
 	}
 	return self;
@@ -390,10 +390,10 @@ static LeveyTabBarController *leveyTabBarController;
     //[self.view setNeedsDisplay];
         
         // 测试视图切换
-        CategoryDetailViewController *loginController=[[CategoryDetailViewController alloc]init];
-        loginController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        //调用此方法显示模态窗口
-        [self presentViewController:loginController animated:YES completion:nil];
+//        CategoryDetailViewController *loginController=[[CategoryDetailViewController alloc]init];
+//        loginController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//        //调用此方法显示模态窗口
+//        [self presentViewController:loginController animated:YES completion:nil];
 }
 
 - (NSInteger)numberOfPages
@@ -419,7 +419,7 @@ static LeveyTabBarController *leveyTabBarController;
     [self.navigationController pushViewController:cagegoryDetailVC animated:YES];
     
     // 修改导航条信息
-    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+    //self.navigationController.navigationBar.barTintColor = [UIColor redColor];
 }
 
 #pragma mark -

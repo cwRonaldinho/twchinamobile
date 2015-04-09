@@ -15,7 +15,7 @@
 @class UITabBarController;
 @protocol LeveyTabBarControllerDelegate;
 
-@interface LeveyTabBarController : UIViewController <LeveyTabBarDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate>
+@interface MainTabBarController : UIViewController <LeveyTabBarDelegate, UIScrollViewDelegate, EGORefreshTableHeaderDelegate>
 {
 	LeveyTabBar *_tabBar;
 	UIView      *_containerView;
@@ -73,13 +73,15 @@
 - (void)reloadTableViewDataSource;
 - (void)doneLoadingTableViewData;
 
++ (MainTabBarController *)mainTabBarController;
+
 @end
 
 
 @protocol LeveyTabBarControllerDelegate <NSObject>
 @optional
-- (BOOL)tabBarController:(LeveyTabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController;
-- (void)tabBarController:(LeveyTabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController;
+- (BOOL)tabBarController:(MainTabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController;
+- (void)tabBarController:(MainTabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController;
 @end
 
 // 重绘本视图协议
@@ -89,6 +91,6 @@
 @end
 
 @interface UIViewController (LeveyTabBarControllerSupport)
-@property(nonatomic, readonly) LeveyTabBarController *leveyTabBarController;
+//@property(nonatomic, readonly) MainTabBarController *leveyTabBarController;
 @end
 

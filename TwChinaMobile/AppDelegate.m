@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "LeveyTabBarController.h"
+#import "MainTabBarController.h"
 #import "GlobalData.h"
 #include "constant.h"
 #import "BaseNavigationController.h"
@@ -43,7 +43,7 @@
     NSLog(@"screen width: %f, height: %f", g_screenWidth, g_screenHeight);
     
     // 主视图控制器
-	_mainViewController = [[LeveyTabBarController alloc] init];
+	_mainViewController = [[MainTabBarController alloc] init];
     
     // 主导航vc
     BaseNavigationController *myNavViewController = [[BaseNavigationController alloc] initWithRootViewController:_mainViewController];
